@@ -4,6 +4,9 @@
  */
 package timemanagement.Account;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kyanh
@@ -103,10 +106,81 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
         new DangNhap().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private String getUser(String mail)
+    {
+        try{ 
+            Connection con = SQLConnection.getSQLConnection();
+            String SQL = "SELECT MAND FROM NGUOIDUNG WHERE EMAIL=?";
+            PreparedStatement ps = con.prepareStatement(SQL); 
+            ps.setString(1, mail); 
+            ResultSet rs = ps.executeQuery(); 
+            String ten = null;
+            while (rs.next())
+                ten = rs.getString(1);
+            return ten;
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"lấy mã người dùng ko thành " + e);
+            return null;
+        }
+    }
+    
+    public Boolean setCodetoSQL(String user, String code)
+    {
+        try{ 
+            Connection con = SQLConnection.getSQLConnection();
+            String SQL = "UPDATE XACNHAN SET XACNHAN = ? WHERE MAND=?";
+            PreparedStatement ps = con.prepareStatement(SQL); 
+            ps.setString(1, code); 
+            ps.setString(2, user); 
+            int kq = ps.executeUpdate(); 
+            
+            if (kq == 0) //Không có người dùng nào tên user
+            {
+                try{
+                    String SQL1 = "INSERT INTO XACNHAN(MAND,XACNHAN) VALUES(?,?)";
+                    PreparedStatement ps1 = con.prepareStatement(SQL1); 
+                    ps1.setString(1, user); 
+                    ps1.setString(2, code); 
+                    ps1.executeUpdate(); 
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(this,"Thêm mã vào csdl không thành công tại 1" + ex); 
+                }
+            }
+            return true;
+        }catch (Exception ex){
+            JOptionPane.showMessageDialog(this,"Thêm mã vào csdl ko thành công tại 2" + ex); 
+            return false;
+        }
+        
+    }
+    
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
-        this.setVisible(false);
-        new XacNhan().setVisible(true);
+        if (inputEmail.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"chưa nhập gmail"); 
+        }
+        else
+        {
+            String user = getUser(inputEmail.getText());
+            if (user != null)
+            {
+                String code = new RandomString().getRandomString();
+                try{
+                    new Mail().SendMailto(inputEmail.getText(), code);
+                }catch(Exception ex){
+                    System.out.print("Lỗi gửi mail" + ex);
+                }
+                
+                System.out.print("thêm code vô csdl "+setCodetoSQL(user,code));
+                this.setVisible(false);
+                new XacNhan().setVisible(true);
+                JOptionPane.showMessageDialog(this,"gửi mail và nhập mã vào csdl thành công"); 
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"nhập gmail không có trong csdl");
+            }
+        }
     }//GEN-LAST:event_btnNextActionPerformed
 
     /**

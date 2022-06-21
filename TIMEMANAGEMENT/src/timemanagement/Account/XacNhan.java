@@ -4,6 +4,9 @@
  */
 package timemanagement.Account;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kyanh
@@ -113,6 +116,11 @@ public class XacNhan extends javax.swing.JFrame {
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Xác nhận");
         btnConfirm.setBorder(null);
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 125, 150, 35));
 
         lbNoti.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -138,11 +146,70 @@ public class XacNhan extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private String user = "andinh";
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new XacThucTaiKhoan().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private Boolean checkCode(String user, String code)
+    {
+        try{ 
+            Connection con = SQLConnection.getSQLConnection();
+            String SQL = "SELECT MAND FROM XACNHAN WHERE MAND =? AND XACNHAN COLLATE Latin1_General_CS_AS = ?";
+            PreparedStatement ps = con.prepareStatement(SQL); 
+            ps.setString(1, user); 
+            ps.setString(2, code); 
+            ResultSet rs = ps.executeQuery(); 
+            String ten = null;
+            while (rs.next())
+                ten = rs.getString(1);
+            if (ten==null)
+                return false;
+            else
+                return true;
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"xác thực mã không thành" + e);
+            return false;
+        }
+    }
+    
+    private Boolean deleteCode(String user)
+    {
+        try{ 
+            Connection con = SQLConnection.getSQLConnection();
+            String SQL = "DELETE FROM XACNHAN WHERE MAND =?";
+            PreparedStatement ps = con.prepareStatement(SQL); 
+            ps.setString(1, user); 
+            int kq = ps.executeUpdate(); 
+            if (kq==0)
+                return false;
+            else
+                return true;
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"không xóa được mã xác thực" + e);
+            return false;
+        }
+    }
+    
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        if (inputCode.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"chưa nhập mã"); 
+        }
+        else
+        {
+            if (checkCode(user,inputCode.getText()))
+            {
+                JOptionPane.showMessageDialog(this,"xóa được mã xác thực =" + deleteCode(user));
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Nhập mã xác thực không đúng");
+            }
+        }
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**
      * @param args the command line arguments
