@@ -206,7 +206,7 @@ public class XacNhan extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(this,"Nhập mã xác thực không đúng");
+                JOptionPane.showMessageDialog(this,"Nhập mã xác thực không đúng", "Không thành công", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed

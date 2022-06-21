@@ -18,7 +18,7 @@ public class SQLConnection {
        String dataBaseName = "TIMEMANAGEMENT";
        
        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-       String connectionURL = "jdbc:sqlserver://" +hostName + ":1433;DatabaseName=" + dataBaseName + ";encrypt=true;trustServerCertificate=true;";
+       String connectionURL = "jdbc:sqlserver://" + hostName + ":1433;DatabaseName=" + dataBaseName + ";encrypt=true;trustServerCertificate=true;";
        
        Connection conn = DriverManager.getConnection(connectionURL,"sa","sa");
        return conn;

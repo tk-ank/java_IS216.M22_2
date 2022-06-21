@@ -1,20 +1,47 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package MainApp;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import timemanagement.Account.SQLConnection;
 
 /**
  *
  * @author kyanh
  */
-public class ThongTinJPanel extends javax.swing.JFrame {
+public class ThongTinJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ThongTinJPanel
      */
-    public ThongTinJPanel() {
+    private String User;
+    public ThongTinJPanel(String user) {
         initComponents();
+        this.User = user;
+        tenUser.setText(this.User);
+        try{
+            Connection con = SQLConnection.getSQLConnection();
+            ResultSet rs;
+            String SQL = "SELECT TENND, TRUONG, GTINH, DTHOAI, EMAIL FROM NGUOIDUNG WHERE MAND = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1,this.User);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                tenUser.setText(rs.getString(1));                
+                Truong.setText(rs.getString(2));
+                if (rs.getInt(3)==1)
+                    jlbGTinh.setText("Nam");
+                else
+                    jlbGTinh.setText("Nữ");
+            }
+        }
+        catch (Exception e){
+            System.out.print("Lỗi " + e);
+        }
     }
 
     /**
@@ -44,8 +71,6 @@ public class ThongTinJPanel extends javax.swing.JFrame {
         jlbSdt = new javax.swing.JLabel();
         jlbEmail = new javax.swing.JLabel();
         jlbNDangKy = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(58, 81, 153));
 
@@ -207,8 +232,8 @@ public class ThongTinJPanel extends javax.swing.JFrame {
                 .addGap(49, 49, 49))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -229,13 +254,8 @@ public class ThongTinJPanel extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Truong;
