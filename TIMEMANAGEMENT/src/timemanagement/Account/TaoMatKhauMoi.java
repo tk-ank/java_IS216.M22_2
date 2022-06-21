@@ -78,6 +78,11 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Xác nhận");
         btnConfirm.setBorder(null);
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmActionPerformed(evt);
+            }
+        });
         jPanel3.add(btnConfirm, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 125, 150, 35));
 
         lbPass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -114,6 +119,10 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         this.setVisible(false);
         new DangNhap().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**
      * @param args the command line arguments

@@ -72,6 +72,11 @@ public class DangNhap extends javax.swing.JFrame {
         btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
         btnSignIn.setText("Đăng nhập");
         btnSignIn.setBorder(null);
+        btnSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignInActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 150, 150, 35));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 500, 200));
@@ -122,6 +127,10 @@ public class DangNhap extends javax.swing.JFrame {
         this.setVisible(false);
         new DangKy().setVisible(true);
     }//GEN-LAST:event_lbSignUpMouseClicked
+
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSignInActionPerformed
 
     /**
      * @param args the command line arguments
