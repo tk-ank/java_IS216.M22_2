@@ -28,11 +28,13 @@ public class DangNhap extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        inputPass = new javax.swing.JTextField();
+        inputUsername = new javax.swing.JTextField();
+        lbUsername = new javax.swing.JLabel();
+        lbPass = new javax.swing.JLabel();
+        btnSignIn = new javax.swing.JButton();
+        lbSignUp = new javax.swing.JLabel();
+        lbForgot = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,30 +43,58 @@ public class DangNhap extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(254, 244, 230));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 100, 300, 25));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 50, 300, 25));
+        inputPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        inputPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(inputPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 100, 300, 25));
 
-        jLabel2.setBackground(new java.awt.Color(254, 244, 230));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(60, 47, 37));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Tên đăng nhập");
-        jLabel2.setAlignmentY(0.0F);
-        jLabel2.setName(""); // NOI18N
-        jLabel2.setOpaque(true);
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 50, 150, 25));
+        inputUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        inputUsername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(inputUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 50, 300, 25));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(60, 47, 37));
-        jLabel3.setText("Mật khẩu");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 100, 150, 25));
+        lbUsername.setBackground(new java.awt.Color(254, 244, 230));
+        lbUsername.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbUsername.setForeground(new java.awt.Color(60, 47, 37));
+        lbUsername.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbUsername.setText("Tên đăng nhập");
+        lbUsername.setAlignmentY(0.0F);
+        lbUsername.setName(""); // NOI18N
+        lbUsername.setOpaque(true);
+        jPanel2.add(lbUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 50, 150, 25));
 
-        jButton1.setText("Đăng nhập");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
+        lbPass.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbPass.setForeground(new java.awt.Color(60, 47, 37));
+        lbPass.setText("Mật khẩu");
+        jPanel2.add(lbPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 100, 150, 25));
+
+        btnSignIn.setBackground(new java.awt.Color(60, 47, 37));
+        btnSignIn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnSignIn.setText("Đăng nhập");
+        btnSignIn.setBorder(null);
+        jPanel2.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 150, 150, 35));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 500, 200));
+
+        lbSignUp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        lbSignUp.setText("Đăng ký");
+        lbSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbSignUpMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lbSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 50, 75, 25));
+
+        lbForgot.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbForgot.setForeground(new java.awt.Color(255, 255, 255));
+        lbForgot.setText("Quên mật khẩu?");
+        lbForgot.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbForgotMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lbForgot, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 125, 25));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,6 +110,18 @@ public class DangNhap extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbForgotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbForgotMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new XacThucTaiKhoan().setVisible(true);
+    }//GEN-LAST:event_lbForgotMouseClicked
+
+    private void lbSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSignUpMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new DangKy().setVisible(true);
+    }//GEN-LAST:event_lbSignUpMouseClicked
 
     /**
      * @param args the command line arguments
@@ -117,12 +159,14 @@ public class DangNhap extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btnSignIn;
+    private javax.swing.JTextField inputPass;
+    private javax.swing.JTextField inputUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel lbForgot;
+    private javax.swing.JLabel lbPass;
+    private javax.swing.JLabel lbSignUp;
+    private javax.swing.JLabel lbUsername;
     // End of variables declaration//GEN-END:variables
 }
