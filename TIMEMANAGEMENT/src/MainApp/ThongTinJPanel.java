@@ -7,7 +7,7 @@ package MainApp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import timemanagement.Account.SQLConnection;
+import Account.SQLConnection;
 
 /**
  *

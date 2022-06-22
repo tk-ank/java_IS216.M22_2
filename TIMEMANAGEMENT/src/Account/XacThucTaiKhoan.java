@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package timemanagement.Account;
+package Account;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -173,7 +173,7 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
                 
                 System.out.print("thêm code vô csdl "+setCodetoSQL(user,code));
                 this.setVisible(false);
-                new XacNhan().setVisible(true);
+                new XacNhan(user).setVisible(true);
                 JOptionPane.showMessageDialog(this,"gửi mail và nhập mã vào csdl thành công"); 
             }
             else

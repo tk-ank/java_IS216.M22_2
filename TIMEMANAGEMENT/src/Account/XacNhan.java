@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package timemanagement.Account;
+package Account;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -16,8 +16,9 @@ public class XacNhan extends javax.swing.JFrame {
     /**
      * Creates new form XacNhan
      */
-    public XacNhan() {
+    public XacNhan(String User) {
         initComponents();
+        user = User;
     }
 
     /**
@@ -146,21 +147,22 @@ public class XacNhan extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private String user = "andinh";
+    
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new XacThucTaiKhoan().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private String user;
+    
     private Boolean checkCode(String user, String code)
     {
         try{ 
             Connection con = SQLConnection.getSQLConnection();
-            String SQL = "SELECT MAND FROM XACNHAN WHERE MAND =? AND XACNHAN COLLATE Latin1_General_CS_AS = ?";
+            String SQL = "SELECT MAND FROM XACNHAN WHERE XACNHAN COLLATE Latin1_General_CS_AS = ?";
             PreparedStatement ps = con.prepareStatement(SQL); 
-            ps.setString(1, user); 
-            ps.setString(2, code); 
+            ps.setString(1, code); 
             ResultSet rs = ps.executeQuery(); 
             String ten = null;
             while (rs.next())
@@ -183,10 +185,10 @@ public class XacNhan extends javax.swing.JFrame {
             PreparedStatement ps = con.prepareStatement(SQL); 
             ps.setString(1, user); 
             int kq = ps.executeUpdate(); 
-            if (kq==0)
-                return false;
-            else
+            if (kq==1)
                 return true;
+            else
+                return false;
         }catch (Exception e){
             JOptionPane.showMessageDialog(this,"không xóa được mã xác thực" + e);
             return false;
@@ -194,15 +196,18 @@ public class XacNhan extends javax.swing.JFrame {
     }
     
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+
         if (inputCode.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(this,"chưa nhập mã"); 
+            JOptionPane.showMessageDialog(this, "Chưa nhập mã", "Không thành công", JOptionPane.ERROR_MESSAGE); 
         }
         else
         {
             if (checkCode(user,inputCode.getText()))
             {
-                JOptionPane.showMessageDialog(this,"xóa được mã xác thực =" + deleteCode(user));
+                    deleteCode(user);
+                    this.setVisible(false);
+                    new TaoMatKhauMoi(user).setVisible(true);
             }
             else
             {

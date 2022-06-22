@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package timemanagement.Account;
+package Account;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -20,7 +20,7 @@ public class DangKy extends javax.swing.JFrame {
      */
     public DangKy() {
         initComponents();
-        btnSignUp.disable();
+        btnSignUp.setEnabled(false);
     }
 
     /**
@@ -222,6 +222,11 @@ public class DangKy extends javax.swing.JFrame {
         rAccept.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rAccept.setForeground(new java.awt.Color(102, 102, 102));
         rAccept.setText("Tôi cam kết những thông tin trên là hoàn toàn chính xác");
+        rAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rAcceptActionPerformed(evt);
+            }
+        });
         pnInfor.add(rAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 425, -1, -1));
 
         btnSignUp.setBackground(new java.awt.Color(60, 47, 37));
@@ -337,32 +342,21 @@ public class DangKy extends javax.swing.JFrame {
         int GTinh;
         if(rMale.isSelected())
         {
-            GTinh = 0;
+            GTinh = 1;
         }
         else
         {
-            GTinh = 1;
+            GTinh = 0;
         }
         String SDT = inputPhone.getText();
         String Email = inputEmail.getText();
         String TenTruong = inputUni.getText();
-        long millis=System.currentTimeMillis();
-        java.sql.Date date = new java.sql.Date(millis);
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-        String NgDK = sdf.format(date.getDate());
-        if(rAccept.isSelected())
-        {
-            btnSignUp.enable();
-        }
-        else
-        {
-            btnSignUp.disable();
-        }
+        
         
         try{
             Connection con;
-            con = SQLConnection.getSQLConnection();
-            String SQL = "INSERT INTO NGUOIDUNG(MAND, TENND, MATKHAU, GTINH, DTHOAI, EMAIL, TRUONG, NGDK) VALUES(?,?,?,?,?,?,?)";
+            con = SQLConnection.getSQLConnection(); 
+            String SQL = "INSERT INTO NGUOIDUNG(MAND, TENND, MATKHAU, GTINH, DTHOAI, EMAIL, TRUONG, NGDK) VALUES(?,?,?,?,?,?,?, (SELECT CONVERT (DATE,GETDATE())))";
             PreparedStatement State = con.prepareStatement(SQL); 
             State.setString(1, TenDN);
             State.setString(2, HoTen);
@@ -371,13 +365,29 @@ public class DangKy extends javax.swing.JFrame {
             State.setString(5, SDT);
             State.setString(6, Email);
             State.setString(7, TenTruong);
-            State.setString(8, NgDK);
-            State.executeUpdate(SQL);  
-            JOptionPane.showMessageDialog(this,"Bạn đã đăng ký tài khoản thành công");
+            int st = State.executeUpdate();  
+            if (st == 1)
+            {
+                JOptionPane.showMessageDialog(this, "Bạn đã đăng ký tài khoản thành công");
+//                this.setVisible(false);
+                this.dispose();
+                new DangNhap().setVisible(true);
+            }
             }catch(Exception ex){
-                
+                System.out.print("Lỗi tại đăng ký "+ ex);
             }
     }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void rAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rAcceptActionPerformed
+        if(rAccept.isSelected())
+        {
+            btnSignUp.setEnabled(true);
+        }
+        else
+        {
+            btnSignUp.setEnabled(false);;
+        }
+    }//GEN-LAST:event_rAcceptActionPerformed
 
     /**
      * @param args the command line arguments

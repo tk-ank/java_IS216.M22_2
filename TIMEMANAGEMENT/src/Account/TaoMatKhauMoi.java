@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package timemanagement.Account;
+package Account;
 
 /**
  *
@@ -13,8 +13,9 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
     /**
      * Creates new form TaoMatKhauMoi
      */
-    public TaoMatKhauMoi() {
+    public TaoMatKhauMoi(String User) {
         initComponents();
+        user = User;
     }
 
     /**
@@ -113,7 +114,8 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private String user;
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
