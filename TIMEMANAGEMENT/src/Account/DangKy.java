@@ -6,6 +6,8 @@ package Account;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
@@ -327,6 +329,47 @@ public class DangKy extends javax.swing.JFrame {
         new DangNhap().setVisible(true);
     }//GEN-LAST:event_btnSignUp1ActionPerformed
 
+    public boolean checkSpecialCharacter(String s) {
+     if (s == null || s.trim().isEmpty()) {
+         JOptionPane.showMessageDialog(this, "Tên đăng nhập sai định dạng", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
+         return false;
+     }
+     Pattern p = Pattern.compile("[^A-Za-z0-9]");
+     Matcher m = p.matcher(s);
+    // boolean b = m.matches();
+     boolean b = m.find();
+     if (b)
+     {
+         JOptionPane.showMessageDialog(this, "Tên đăng nhập sai định dạng", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
+         return false;
+     }
+        
+     else
+         return true;
+    }
+    
+    public boolean CheckPass (String Pass, String RePass)
+    {
+        if (Pass.equals(RePass))
+        {
+            return true;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Mật khẩu không khớp", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+  
+    private boolean KiemTraNhap(String TenDN, String Pass, String RePass, String SDT)
+    {
+        if (checkSpecialCharacter(TenDN) == true && CheckPass(Pass, RePass) == true)
+        {
+            return true;
+        }
+        return false;
+    }
+    
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
 
         // Tạo button group cho Giới tính
@@ -352,8 +395,9 @@ public class DangKy extends javax.swing.JFrame {
         String Email = inputEmail.getText();
         String TenTruong = inputUni.getText();
         
-        
-        try{
+        if (KiemTraNhap(TenDN, Pass, RePass, SDT))
+        {
+            try{
             Connection con;
             con = SQLConnection.getSQLConnection(); 
             String SQL = "INSERT INTO NGUOIDUNG(MAND, TENND, MATKHAU, GTINH, DTHOAI, EMAIL, TRUONG, NGDK) VALUES(?,?,?,?,?,?,?, (SELECT CONVERT (DATE,GETDATE())))";
@@ -376,6 +420,8 @@ public class DangKy extends javax.swing.JFrame {
             }catch(Exception ex){
                 System.out.print("Lỗi tại đăng ký "+ ex);
             }
+        }
+        
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void rAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rAcceptActionPerformed

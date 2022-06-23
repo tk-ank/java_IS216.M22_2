@@ -4,6 +4,13 @@
  */
 package Account;
 
+import Controller.ChuyenManHinh;
+import MainApp.QuanLyThoiGian;
+import com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author kyanh
@@ -28,11 +35,11 @@ public class DangNhap extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        inputPass = new javax.swing.JTextField();
         inputUsername = new javax.swing.JTextField();
         lbUsername = new javax.swing.JLabel();
         lbPass = new javax.swing.JLabel();
         btnSignIn = new javax.swing.JButton();
+        inputPass = new javax.swing.JPasswordField();
         lbSignUp = new javax.swing.JLabel();
         lbForgot = new javax.swing.JLabel();
 
@@ -43,10 +50,6 @@ public class DangNhap extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(254, 244, 230));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        inputPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        inputPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.add(inputPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 100, 300, 25));
 
         inputUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inputUsername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -78,6 +81,10 @@ public class DangNhap extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnSignIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 150, 150, 35));
+
+        inputPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        inputPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(inputPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 100, 300, 25));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 500, 200));
 
@@ -124,12 +131,40 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void lbSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSignUpMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
         new DangKy().setVisible(true);
     }//GEN-LAST:event_lbSignUpMouseClicked
 
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
-        // TODO add your handling code here:
+        String TenDN = inputUsername.getText();
+        String Pass = inputPass.getText();
+        
+        try{
+            Connection conn = null;
+            conn = SQLConnection.getSQLConnection();
+            
+            String SQL = "SELECT MAND FROM NGUOIDUNG WHERE MAND = ? and MATKHAU = ?";
+            
+            SQLServerPreparedStatement ps = (SQLServerPreparedStatement) conn.prepareStatement(SQL); 
+            ps.setString(1, TenDN);
+            ps.setString(2, Pass);
+            
+            ResultSet rs = ps.executeQuery();
+                    
+            if(rs.next())
+            {
+                JOptionPane.showMessageDialog(this,"Đăng nhập thành công");
+                this.dispose();
+                new QuanLyThoiGian(rs.getString(1)).setVisible(true);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"Tài khoản hoặc mật khẩu sai","Sai mật khẩu!",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch (Exception ex){
+            System.out.println();
+        }
     }//GEN-LAST:event_btnSignInActionPerformed
 
     /**
@@ -169,7 +204,7 @@ public class DangNhap extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSignIn;
-    private javax.swing.JTextField inputPass;
+    private javax.swing.JPasswordField inputPass;
     private javax.swing.JTextField inputUsername;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -178,4 +213,8 @@ public class DangNhap extends javax.swing.JFrame {
     private javax.swing.JLabel lbSignUp;
     private javax.swing.JLabel lbUsername;
     // End of variables declaration//GEN-END:variables
+
+    private JPanel TrangChuJPanel() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
