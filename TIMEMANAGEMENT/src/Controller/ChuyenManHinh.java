@@ -77,7 +77,7 @@ public class ChuyenManHinh {
                     node = new TkbJPanel();
                     break;
                 case "Deadline":
-                    node = new DeadlineJPanel();
+                    node = new DeadlineJPanel(this.User);
                     break;
                 case "Todolist":
                     node = new TodolistJPanel();

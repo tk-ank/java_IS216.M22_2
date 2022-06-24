@@ -324,7 +324,7 @@ public class DangKy extends javax.swing.JFrame {
         pnInfor.add(lbPhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 325, 200, 25));
 
         dcNgSinh.setCalendarBackground(new java.awt.Color(255, 255, 255));
-        dcNgSinh.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 18));
+        dcNgSinh.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 14));
         pnInfor.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 275, 300, 25));
 
         jPanel1.add(pnInfor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 561, 580));

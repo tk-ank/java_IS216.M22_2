@@ -51,63 +51,70 @@ public class SuaThongTin extends javax.swing.JFrame {
         jtfEmail = new javax.swing.JTextField();
         btnSuaTT = new javax.swing.JButton();
         jlbLoi = new javax.swing.JLabel();
+        dcNgSinh = new datechooser.beans.DateChooserCombo();
+        btnHuy = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(58, 81, 153));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(254, 244, 230));
         jPanel2.setPreferredSize(new java.awt.Dimension(0, 458));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Tên trường:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 275, 150, 25));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Họ và tên:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 150, 25));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Ngày sinh:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 75, 150, 25));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Email:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 225, 150, 25));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Giới tính: ");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 125, 150, 25));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setText("Số điện thoại: ");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 175, 150, 25));
 
-        jtfTruong.setBorder(null);
-        jPanel2.add(jtfTruong, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 260, 30));
+        jtfTruong.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jtfTruong.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jtfTruong, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 275, 275, 25));
 
         jcbNu.setBackground(new java.awt.Color(254, 244, 230));
-        jcbNu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jcbNu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jcbNu.setText("Nữ");
         jcbNu.setIconTextGap(8);
-        jPanel2.add(jcbNu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 60, 30));
+        jPanel2.add(jcbNu, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 125, 125, 25));
 
         jcbNam.setBackground(new java.awt.Color(254, 244, 230));
-        jcbNam.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jcbNam.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jcbNam.setText("Nam");
         jcbNam.setIconTextGap(8);
-        jPanel2.add(jcbNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 60, 30));
+        jPanel2.add(jcbNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 125, 125, 25));
 
-        jtfHoTen.setBorder(null);
-        jPanel2.add(jtfHoTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 260, 30));
+        jtfHoTen.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jtfHoTen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jtfHoTen, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 25, 275, 25));
 
-        jtfSdt.setBorder(null);
-        jPanel2.add(jtfSdt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 260, 30));
+        jtfSdt.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jtfSdt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jtfSdt, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 175, 275, 25));
 
-        jtfEmail.setBorder(null);
-        jPanel2.add(jtfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 260, 30));
+        jtfEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jtfEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(jtfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 225, 275, 25));
 
         btnSuaTT.setBackground(new java.awt.Color(58, 81, 153));
         btnSuaTT.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -120,36 +127,33 @@ public class SuaThongTin extends javax.swing.JFrame {
                 btnSuaTTActionPerformed(evt);
             }
         });
-        jPanel2.add(btnSuaTT, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, 170, 40));
+        jPanel2.add(btnSuaTT, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 150, 35));
 
         jlbLoi.setForeground(new java.awt.Color(255, 51, 51));
         jPanel2.add(jlbLoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 260, 30));
 
+        dcNgSinh.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 14));
+        jPanel2.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 75, 275, 25));
+
+        btnHuy.setBackground(new java.awt.Color(255, 255, 255));
+        btnHuy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnHuy.setForeground(new java.awt.Color(58, 81, 153));
+        btnHuy.setText("Hủy");
+        btnHuy.setBorder(null);
+        btnHuy.setBorderPainted(false);
+        btnHuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHuyActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnHuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 320, 150, 35));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 76, 475, 375));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CHỈNH SỬA TÀI KHOẢN");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 25, 321, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,16 +165,17 @@ public class SuaThongTin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSuaTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaTTActionPerformed
         String HoTen = jtfHoTen.getText();
-        //       String NgSinh = jtfNgSinh.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
+        String NgSinh = dcNgSinh.getText();
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
 //        String NgSinh = sdf.format(jDateChooser.getDate());
         String Sdt = jtfSdt.getText();
         String Email = jtfEmail.getText();
@@ -186,16 +191,16 @@ public class SuaThongTin extends javax.swing.JFrame {
                 else GTinh = 0;
                 Connection conn = SQLConnection.getSQLConnection();
                 String Sql = "update NGUOIDUNG\n" +
-                "set TENND = ?, GTINH = ?, DTHOAI = ?, Email = ?, TRUONG = ?\n" +
+                "set TENND = ?, NGSINH =?, GTINH = ?, DTHOAI = ?, Email = ?, TRUONG = ?\n" +
                 "where MAND = ?" ;
                 PreparedStatement ps = conn.prepareStatement(Sql);
                 ps.setString(1, HoTen);
-//                ps.setString(2,NgSinh);
-                ps.setInt(2, GTinh);
-                ps.setString(3, Sdt);
-                ps.setString(4, Email);
-                ps.setString(5, Truong);
-                ps.setString(6, this.User);
+                ps.setString(2,NgSinh);
+                ps.setInt(3, GTinh);
+                ps.setString(4, Sdt);
+                ps.setString(5, Email);
+                ps.setString(6, Truong);
+                ps.setString(7, this.User);
                 int rs = ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Chỉnh sửa thành công!");
                 this.dispose();
@@ -208,11 +213,17 @@ public class SuaThongTin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSuaTTActionPerformed
 
+    private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnHuyActionPerformed
+
     /**
      * @param args the command line arguments
      */
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHuy;
     private javax.swing.JButton btnSuaTT;
+    private datechooser.beans.DateChooserCombo dcNgSinh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
