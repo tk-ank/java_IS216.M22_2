@@ -38,11 +38,12 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         btnConfirm = new javax.swing.JButton();
         lbPass = new javax.swing.JLabel();
-        inputPass = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        inputPass = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(60, 47, 37));
+        jPanel1.setBackground(new java.awt.Color(58, 81, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTiitle.setBackground(new java.awt.Color(60, 47, 37));
@@ -50,7 +51,7 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         lbTiitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTiitle.setText("ĐỔI MẬT KHẨU");
         lbTiitle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(lbTiitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 25, 300, 50));
+        jPanel1.add(lbTiitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 13, 300, 50));
 
         jPanel3.setBackground(new java.awt.Color(254, 244, 230));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,7 +68,7 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(60, 47, 37));
+        btnBack.setForeground(new java.awt.Color(58, 81, 153));
         btnBack.setText("Quay lại");
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +78,7 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         });
         jPanel3.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 125, 150, 35));
 
-        btnConfirm.setBackground(new java.awt.Color(60, 47, 37));
+        btnConfirm.setBackground(new java.awt.Color(58, 81, 153));
         btnConfirm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Xác nhận");
@@ -95,11 +96,12 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         lbPass.setText("Mật khẩu");
         jPanel3.add(lbPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 175, 25));
 
-        inputPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        inputPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(inputPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 25, 275, 25));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jScrollPane1.setViewportView(inputPass);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 500, 175));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 25, 275, 25));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 500, 175));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,10 +176,11 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
-    private javax.swing.JTextField inputPass;
+    private javax.swing.JTextPane inputPass;
     private javax.swing.JTextField inputRePass;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbPass;
     private javax.swing.JLabel lbRePass;
     private javax.swing.JLabel lbTiitle;

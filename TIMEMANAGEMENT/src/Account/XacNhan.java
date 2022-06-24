@@ -77,15 +77,16 @@ public class XacNhan extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(60, 47, 37));
+        jPanel1.setBackground(new java.awt.Color(58, 81, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTitlle.setBackground(new java.awt.Color(60, 47, 37));
-        lbTitlle.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lbTitlle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lbTitlle.setForeground(new java.awt.Color(255, 255, 255));
+        lbTitlle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbTitlle.setText("MÃ XÁC THỰC");
         lbTitlle.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(lbTitlle, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 25, 250, 50));
+        jPanel1.add(lbTitlle, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 13, 275, 50));
 
         jPanel3.setBackground(new java.awt.Color(254, 244, 230));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -112,7 +113,7 @@ public class XacNhan extends javax.swing.JFrame {
         });
         jPanel3.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 125, 150, 35));
 
-        btnConfirm.setBackground(new java.awt.Color(60, 47, 37));
+        btnConfirm.setBackground(new java.awt.Color(58, 81, 153));
         btnConfirm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirm.setText("Xác nhận");
@@ -128,7 +129,7 @@ public class XacNhan extends javax.swing.JFrame {
         lbNoti.setText("Vui lòng nhập mã xác nhận được gửi qua email của bạn");
         jPanel3.add(lbNoti, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 475, 30));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 500, 175));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 500, 175));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

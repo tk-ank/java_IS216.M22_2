@@ -25,21 +25,21 @@ public class ThongTinJPanel extends javax.swing.JPanel {
         try{
             Connection con = SQLConnection.getSQLConnection();
             ResultSet rs;
-            String SQL = "SELECT TENND, TRUONG, GTINH, DTHOAI, EMAIL, NGDK FROM NGUOIDUNG WHERE MAND = ?";
+            String SQL = "SELECT TENND, TRUONG, NGSINH, GTINH, DTHOAI, EMAIL, NGDK FROM NGUOIDUNG WHERE MAND = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, this.User);
             rs = ps.executeQuery();
             while(rs.next()){
                 tenUser.setText(rs.getString(1));                
                 Truong.setText(rs.getString(2));
-//                jlbNSinh.setText(rs.getString(3));
-                if (rs.getInt(3)==1)
+                jlbNSinh.setText(rs.getString(3));
+                if (rs.getInt(4)==1)
                     jlbGTinh.setText("Nam");
                 else
                     jlbGTinh.setText("Nữ");
-                jlbSdt.setText(rs.getString(4));
-                jlbEmail.setText(rs.getString(5));
-                jlbNDangKy.setText(rs.getString(6));
+                jlbSdt.setText(rs.getString(5));
+                jlbEmail.setText(rs.getString(6));
+                jlbNDangKy.setText(rs.getString(7));
             }
         }
         catch (Exception e){
@@ -77,37 +77,37 @@ public class ThongTinJPanel extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(58, 81, 153));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tenUser.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        tenUser.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
         tenUser.setForeground(new java.awt.Color(255, 255, 255));
         tenUser.setText("jLabel1");
-        jPanel3.add(tenUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 39, 505, 34));
+        jPanel3.add(tenUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, 550, 35));
 
         Truong.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        Truong.setForeground(new java.awt.Color(204, 204, 204));
+        Truong.setForeground(new java.awt.Color(255, 255, 255));
         Truong.setText("jLabel1");
-        jPanel3.add(Truong, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 83, 462, -1));
+        jPanel3.add(Truong, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 60, 575, 25));
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 150));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 100));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Ngày sinh:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 158, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 125, 150, 25));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Giới tính:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 222, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 200, 150, 25));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Số điện thoại:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 285, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 275, 150, 25));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Email:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 353, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 350, 150, 25));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Ngày đăng ký: ");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 417, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 425, 150, 25));
 
         jlbSuaTT.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
         jlbSuaTT.setForeground(new java.awt.Color(58, 81, 153));
@@ -123,27 +123,27 @@ public class ThongTinJPanel extends javax.swing.JPanel {
                 jlbSuaTTMouseExited(evt);
             }
         });
-        add(jlbSuaTT, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 460, 170, -1));
+        add(jlbSuaTT, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 465, 200, 25));
 
-        jlbGTinh.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlbGTinh.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlbGTinh.setText("jLabel7");
-        add(jlbGTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 133, -1));
+        add(jlbGTinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 200, 400, 25));
 
-        jlbNSinh.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlbNSinh.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlbNSinh.setText("jLabel7");
-        add(jlbNSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 156, 133, -1));
+        add(jlbNSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 125, 400, 25));
 
-        jlbSdt.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlbSdt.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlbSdt.setText("jLabel7");
-        add(jlbSdt, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 283, 133, -1));
+        add(jlbSdt, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 275, 400, 25));
 
-        jlbEmail.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlbEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlbEmail.setText("jLabel7");
-        add(jlbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 351, 133, -1));
+        add(jlbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 350, 400, 25));
 
-        jlbNDangKy.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jlbNDangKy.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlbNDangKy.setText("jLabel7");
-        add(jlbNDangKy, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 415, 133, -1));
+        add(jlbNDangKy, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 425, 400, 25));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jlbSuaTTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlbSuaTTMouseClicked

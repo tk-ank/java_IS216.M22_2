@@ -57,7 +57,7 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnBack.setForeground(new java.awt.Color(60, 47, 37));
+        btnBack.setForeground(new java.awt.Color(58, 81, 153));
         btnBack.setText("Quay lại");
         btnBack.setBorder(null);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
         });
         jPanel2.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 125, 150, 35));
 
-        btnNext.setBackground(new java.awt.Color(60, 47, 37));
+        btnNext.setBackground(new java.awt.Color(58, 81, 153));
         btnNext.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Tiếp tục");
@@ -83,18 +83,18 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
         lbNoti.setText("Vui lòng nhập email mà bạn dùng để đăng ký tài khoản");
         jPanel2.add(lbNoti, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 450, 30));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 500, 175));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 500, 175));
 
-        jPanel1.setBackground(new java.awt.Color(60, 47, 37));
+        jPanel1.setBackground(new java.awt.Color(58, 81, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTitle.setBackground(new java.awt.Color(60, 47, 37));
         lbTitle.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setText("XÁC THỰC TÀI KHOẢN");
-        jPanel1.add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 25, 400, 50));
+        jPanel1.add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 13, 400, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 275));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 250));
 
         pack();
         setLocationRelativeTo(null);

@@ -69,7 +69,7 @@ public class DangKy extends javax.swing.JFrame {
         lbRePass = new javax.swing.JLabel();
         lbName = new javax.swing.JLabel();
         lbSex = new javax.swing.JLabel();
-        lbPhone = new javax.swing.JLabel();
+        lbNgSinh = new javax.swing.JLabel();
         lbEmail = new javax.swing.JLabel();
         lbUni = new javax.swing.JLabel();
         rAccept = new javax.swing.JCheckBox();
@@ -84,6 +84,8 @@ public class DangKy extends javax.swing.JFrame {
         btnSignUp1 = new javax.swing.JButton();
         inputRePass = new javax.swing.JPasswordField();
         inputPass = new javax.swing.JPasswordField();
+        lbPhone1 = new javax.swing.JLabel();
+        dcNgSinh = new datechooser.beans.DateChooserCombo();
         lbTitle = new javax.swing.JLabel();
 
         jPanel4.setBackground(new java.awt.Color(254, 244, 230));
@@ -187,7 +189,7 @@ public class DangKy extends javax.swing.JFrame {
         setLocation(new java.awt.Point(0, 0));
         setName("frDangKy"); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(60, 47, 37));
+        jPanel1.setBackground(new java.awt.Color(58, 81, 153));
         jPanel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -214,17 +216,17 @@ public class DangKy extends javax.swing.JFrame {
         lbSex.setText("Giới tính: ");
         pnInfor.add(lbSex, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 225, 200, 25));
 
-        lbPhone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbPhone.setText("Số điện thoại: ");
-        pnInfor.add(lbPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 275, 200, 25));
+        lbNgSinh.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbNgSinh.setText("Ngày sinh:");
+        pnInfor.add(lbNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 275, 200, 25));
 
         lbEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbEmail.setText("Email:");
-        pnInfor.add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 325, 200, 25));
+        pnInfor.add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 375, 200, 25));
 
         lbUni.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbUni.setText("Tên trường:");
-        pnInfor.add(lbUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 375, 200, 25));
+        pnInfor.add(lbUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 425, 200, 25));
 
         rAccept.setBackground(new java.awt.Color(254, 244, 230));
         rAccept.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -235,7 +237,7 @@ public class DangKy extends javax.swing.JFrame {
                 rAcceptActionPerformed(evt);
             }
         });
-        pnInfor.add(rAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 425, -1, -1));
+        pnInfor.add(rAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 475, -1, -1));
 
         btnSignUp.setBackground(new java.awt.Color(60, 47, 37));
         btnSignUp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -250,19 +252,19 @@ public class DangKy extends javax.swing.JFrame {
                 btnSignUpActionPerformed(evt);
             }
         });
-        pnInfor.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 465, 150, 35));
+        pnInfor.add(btnSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 525, 150, 35));
 
         inputUni.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inputUni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnInfor.add(inputUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 375, 300, 25));
+        pnInfor.add(inputUni, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 425, 300, 25));
 
         inputEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inputEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnInfor.add(inputEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 325, 300, 25));
+        pnInfor.add(inputEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 375, 300, 25));
 
         inputPhone.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inputPhone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnInfor.add(inputPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 275, 300, 25));
+        pnInfor.add(inputPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 325, 300, 25));
 
         rFemale.setBackground(new java.awt.Color(254, 244, 230));
         rFemale.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -307,7 +309,7 @@ public class DangKy extends javax.swing.JFrame {
                 btnSignUp1ActionPerformed(evt);
             }
         });
-        pnInfor.add(btnSignUp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 465, 169, 35));
+        pnInfor.add(btnSignUp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 525, 169, 35));
 
         inputRePass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         inputRePass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -317,7 +319,15 @@ public class DangKy extends javax.swing.JFrame {
         inputPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnInfor.add(inputPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 75, 300, 25));
 
-        jPanel1.add(pnInfor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 561, 520));
+        lbPhone1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbPhone1.setText("Số điện thoại: ");
+        pnInfor.add(lbPhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 325, 200, 25));
+
+        dcNgSinh.setCalendarBackground(new java.awt.Color(255, 255, 255));
+        dcNgSinh.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 18));
+        pnInfor.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 275, 300, 25));
+
+        jPanel1.add(pnInfor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 561, 580));
 
         lbTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -341,7 +351,7 @@ public class DangKy extends javax.swing.JFrame {
 
     private void btnSignUp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUp1ActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
         new DangNhap().setVisible(true);
     }//GEN-LAST:event_btnSignUp1ActionPerformed
 
@@ -377,9 +387,9 @@ public class DangKy extends javax.swing.JFrame {
         }
     }
   
-    private boolean KiemTraNhapDu(String TenDN, String Pass, String RePass, String Name, String SDT, String Email, String Uni)
+    private boolean KiemTraNhapDu(String TenDN, String Pass, String RePass, String Name, String NgSinh, String SDT, String Email, String Uni)
     {
-        if(TenDN.isEmpty() || Pass.isEmpty() || RePass.isEmpty() || Name.isEmpty() || SDT.isEmpty() || Email.isEmpty() || Uni.isEmpty())
+        if(TenDN.isEmpty() || Pass.isEmpty() || RePass.isEmpty() || Name.isEmpty() || NgSinh.isEmpty() || SDT.isEmpty() || Email.isEmpty() || Uni.isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập đủ các thông tin", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
             return false;
@@ -448,11 +458,12 @@ public class DangKy extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+        String NgSinh = dcNgSinh.getText();
         String SDT = inputPhone.getText();
         String Email = inputEmail.getText();
         String TenTruong = inputUni.getText();
         
-        if (KiemTraNhapDu(TenDN, Pass, RePass, HoTen, SDT, Email, TenTruong) == true)
+        if (KiemTraNhapDu(TenDN, Pass, RePass, HoTen, NgSinh, SDT, Email, TenTruong) == true)
         {
             if (KiemTraChon(rMale, rFemale))
             {
@@ -484,15 +495,16 @@ public class DangKy extends javax.swing.JFrame {
                 {
                     Connection con;
                     con = SQLConnection.getSQLConnection(); 
-                    String SQL = "INSERT INTO NGUOIDUNG(MAND, TENND, MATKHAU, GTINH, DTHOAI, EMAIL, TRUONG, NGDK) VALUES(?,?,?,?,?,?,?, (SELECT CONVERT (DATE,GETDATE())))";
+                    String SQL = "INSERT INTO NGUOIDUNG(MAND, TENND, MATKHAU, NGSINH, GTINH, DTHOAI, EMAIL, TRUONG, NGDK) VALUES(?,?,?,?,?,?,?,?, (SELECT CONVERT (DATE,GETDATE())))";
                     PreparedStatement State = con.prepareStatement(SQL); 
                     State.setString(1, TenDN);
                     State.setString(2, HoTen);
                     State.setString(3, encryptedPass);
-                    State.setInt(4, GTinh);
-                    State.setString(5, SDT);
-                    State.setString(6, Email);
-                    State.setString(7, TenTruong);
+                    State.setString(4, NgSinh);
+                    State.setInt(5, GTinh);
+                    State.setString(6, SDT);
+                    State.setString(7, Email);
+                    State.setString(8, TenTruong);
                     int st = State.executeUpdate();  
                     if (st == 1)
                     {
@@ -550,6 +562,7 @@ public class DangKy extends javax.swing.JFrame {
     private javax.swing.JButton btnSignUp;
     private javax.swing.JButton btnSignUp1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private datechooser.beans.DateChooserCombo dcNgSinh;
     private javax.swing.JTextField inputEmail;
     private javax.swing.JTextField inputName;
     private javax.swing.JPasswordField inputPass;
@@ -583,8 +596,9 @@ public class DangKy extends javax.swing.JFrame {
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbNgSinh;
     private javax.swing.JLabel lbPass;
-    private javax.swing.JLabel lbPhone;
+    private javax.swing.JLabel lbPhone1;
     private javax.swing.JLabel lbRePass;
     private javax.swing.JLabel lbSex;
     private javax.swing.JLabel lbTitle;

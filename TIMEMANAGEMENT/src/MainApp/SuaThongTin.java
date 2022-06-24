@@ -55,7 +55,7 @@ public class SuaThongTin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(60, 47, 37));
+        jPanel1.setBackground(new java.awt.Color(58, 81, 153));
 
         jPanel2.setBackground(new java.awt.Color(254, 244, 230));
         jPanel2.setPreferredSize(new java.awt.Dimension(0, 458));
@@ -109,7 +109,7 @@ public class SuaThongTin extends javax.swing.JFrame {
         jtfEmail.setBorder(null);
         jPanel2.add(jtfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 260, 30));
 
-        btnSuaTT.setBackground(new java.awt.Color(60, 47, 37));
+        btnSuaTT.setBackground(new java.awt.Color(58, 81, 153));
         btnSuaTT.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSuaTT.setForeground(new java.awt.Color(255, 255, 255));
         btnSuaTT.setText("Chỉnh sửa");
