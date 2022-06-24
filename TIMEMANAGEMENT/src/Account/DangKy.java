@@ -493,7 +493,6 @@ public class DangKy extends javax.swing.JFrame {
                 }
             }
         }
-        
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void rAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rAcceptActionPerformed
@@ -528,7 +527,6 @@ public class DangKy extends javax.swing.JFrame {
             rMale.setSelected(true);
         }
     }//GEN-LAST:event_rFemaleActionPerformed
-
 
     /**
      * @param args the command line arguments

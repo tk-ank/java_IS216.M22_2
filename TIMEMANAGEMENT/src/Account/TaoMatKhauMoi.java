@@ -118,7 +118,7 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
     private String user;
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
         new DangNhap().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
