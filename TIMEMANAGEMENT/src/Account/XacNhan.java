@@ -150,7 +150,7 @@ public class XacNhan extends javax.swing.JFrame {
     
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
         new XacThucTaiKhoan().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -158,11 +158,13 @@ public class XacNhan extends javax.swing.JFrame {
     
     private Boolean checkCode(String user, String code)
     {
+        String encryptedCode = new SHA256().encryptThisString(code);
         try{ 
             Connection con = SQLConnection.getSQLConnection();
-            String SQL = "SELECT MAND FROM XACNHAN WHERE XACNHAN COLLATE Latin1_General_CS_AS = ?";
+            String SQL = "SELECT MAND FROM XACNHAN WHERE MAND = ? AND XACNHAN COLLATE Latin1_General_CS_AS = ?";
             PreparedStatement ps = con.prepareStatement(SQL); 
-            ps.setString(1, code); 
+            ps.setString(1, user); 
+            ps.setString(2, encryptedCode); 
             ResultSet rs = ps.executeQuery(); 
             String ten = null;
             while (rs.next())
@@ -172,7 +174,7 @@ public class XacNhan extends javax.swing.JFrame {
             else
                 return true;
         }catch (Exception e){
-            JOptionPane.showMessageDialog(this,"xác thực mã không thành" + e);
+            JOptionPane.showMessageDialog(this, "Xác thực mã không thành công "+e, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE); 
             return false;
         }
     }
@@ -190,7 +192,7 @@ public class XacNhan extends javax.swing.JFrame {
             else
                 return false;
         }catch (Exception e){
-            JOptionPane.showMessageDialog(this,"không xóa được mã xác thực" + e);
+            JOptionPane.showMessageDialog(this, "Không xóa được mã "+e, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE); 
             return false;
         }
     }
@@ -199,19 +201,19 @@ public class XacNhan extends javax.swing.JFrame {
 
         if (inputCode.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(this, "Chưa nhập mã", "Không thành công", JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(this, "Chưa nhập mã", "Lỗi", JOptionPane.ERROR_MESSAGE); 
         }
         else
         {
             if (checkCode(user,inputCode.getText()))
             {
                     deleteCode(user);
-                    this.setVisible(false);
+                    this.dispose();
                     new TaoMatKhauMoi(user).setVisible(true);
             }
             else
             {
-                JOptionPane.showMessageDialog(this,"Nhập mã xác thực không đúng", "Không thành công", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,"Nhập mã xác thực không đúng", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnConfirmActionPerformed

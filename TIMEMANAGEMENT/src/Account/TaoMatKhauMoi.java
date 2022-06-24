@@ -4,6 +4,9 @@
  */
 package Account;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author kyanh
@@ -123,7 +126,44 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
-        // TODO add your handling code here:
+        if (inputPass.getText().isEmpty() || inputRePass.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Chưa nhập đầy đủ mật khẩu", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (inputPass.getText().equals(inputRePass.getText()) == false)
+        {
+            JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu không trùng khớp", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        String Pass = inputPass.getText();
+        String encryptedPass = new SHA256().encryptThisString(Pass);
+        
+        try{ 
+            Connection con = SQLConnection.getSQLConnection();
+            String SQL = "UPDATE NGUOIDUNG SET MATKHAU = ? WHERE MAND =?";
+            PreparedStatement ps = con.prepareStatement(SQL); 
+            ps.setString(1, encryptedPass); 
+            ps.setString(2, user); 
+            int kq = ps.executeUpdate(); 
+            if (kq==1)
+            {
+                JOptionPane.showMessageDialog(this, "Cập nhật mật khẩu thành công!");
+                this.dispose();
+                new DangNhap().setVisible(true);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Cập nhật mật khẩu không thành công \nHãy thử lại với mã khác", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                this.dispose();
+                new XacThucTaiKhoan();
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Lỗi không xác định "+e, "Lỗi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     /**

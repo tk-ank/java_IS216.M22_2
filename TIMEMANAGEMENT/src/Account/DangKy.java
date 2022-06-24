@@ -394,8 +394,6 @@ public class DangKy extends javax.swing.JFrame {
         String RePass = inputRePass.getText();
         String HoTen = inputName.getText();
         int GTinh;
-        try
-        {
             if(rMale.isSelected())
             {
                 GTinh = 1;
@@ -409,11 +407,6 @@ public class DangKy extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-        }
-        catch(Exception ex)
-        {
-            System.out.print(ex);
-        }
         
         String SDT = inputPhone.getText();
         String Email = inputEmail.getText();
@@ -423,6 +416,7 @@ public class DangKy extends javax.swing.JFrame {
         {
             if (KiemTraNhapDung(TenDN, Pass, RePass, SDT))
             {
+                String encryptedPass = new SHA256().encryptThisString(Pass);
                 try
                 {
                     Connection con;
@@ -431,7 +425,7 @@ public class DangKy extends javax.swing.JFrame {
                     PreparedStatement State = con.prepareStatement(SQL); 
                     State.setString(1, TenDN);
                     State.setString(2, HoTen);
-                    State.setString(3, Pass);
+                    State.setString(3, encryptedPass);
                     State.setInt(4, GTinh);
                     State.setString(5, SDT);
                     State.setString(6, Email);

@@ -126,11 +126,12 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
     
     public Boolean setCodetoSQL(String user, String code)
     {
+        String encryptedCode = new SHA256().encryptThisString(code);
         try{ 
             Connection con = SQLConnection.getSQLConnection();
             String SQL = "UPDATE XACNHAN SET XACNHAN = ? WHERE MAND=?";
             PreparedStatement ps = con.prepareStatement(SQL); 
-            ps.setString(1, code); 
+            ps.setString(1, encryptedCode); 
             ps.setString(2, user); 
             int kq = ps.executeUpdate(); 
             
@@ -140,15 +141,15 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
                     String SQL1 = "INSERT INTO XACNHAN(MAND,XACNHAN) VALUES(?,?)";
                     PreparedStatement ps1 = con.prepareStatement(SQL1); 
                     ps1.setString(1, user); 
-                    ps1.setString(2, code); 
+                    ps1.setString(2, encryptedCode); 
                     ps1.executeUpdate(); 
                 }catch (Exception ex){
-                    JOptionPane.showMessageDialog(this,"Thêm mã vào csdl không thành công tại 1" + ex); 
+                    JOptionPane.showMessageDialog(this, "Không thể thêm mã vào cơ sở dữ liệu "+ex, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
                 }
             }
             return true;
         }catch (Exception ex){
-            JOptionPane.showMessageDialog(this,"Thêm mã vào csdl ko thành công tại 2" + ex); 
+            JOptionPane.showMessageDialog(this, "Không thể cập nhật mã mới "+ex, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
@@ -174,7 +175,7 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
                 System.out.print("thêm code vô csdl "+setCodetoSQL(user,code));
                 this.setVisible(false);
                 new XacNhan(user).setVisible(true);
-                JOptionPane.showMessageDialog(this,"gửi mail và nhập mã vào csdl thành công"); 
+                //JOptionPane.showMessageDialog(this,"gửi mail và nhập mã vào csdl thành công"); 
             }
             else
             {

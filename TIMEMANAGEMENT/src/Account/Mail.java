@@ -40,67 +40,9 @@ public class Mail {
         
         Message message = prepareMessage(newSession, fromUser, toUserMail, code);
         Transport.send(message);
-        System.out.print("successful");
+        //System.out.print("successful");
     }
-    
-//    try{ 
-//            Connection con = SQLConnection.getSQLConnection();
-//            String SQL = "INSERT INTO XACNHAN(MAND,XACNHAN) VALUES(?,?)";
-//            PreparedStatement ps = con.prepareStatement(SQL); 
-//            ps.setInt(1, madl); 
-//            ps.setString(2, code); 
-//            ps.executeUpdate(); 
-//        }catch (Exception e){
-//            System.out.print("Lỗi tạo bảng lấy deadline" + e);
-//        }
-    
-    public Boolean setCodetoSQL(String user, String code)
-    {
-        try{ 
-            Connection con = SQLConnection.getSQLConnection();
-            String SQL = "UPDATE XACNHAN SET XACNHAN = ? WHERE MAND=?";
-            PreparedStatement ps = con.prepareStatement(SQL); 
-            ps.setString(1, code); 
-            ps.setString(2, user); 
-            int kq = ps.executeUpdate(); 
-            
-            if (kq == 0) //Không có người dùng nào tên user
-            {
-                try{
-                    String SQL1 = "INSERT INTO XACNHAN(MAND,XACNHAN) VALUES(?,?)";
-                    PreparedStatement ps1 = con.prepareStatement(SQL1); 
-                    ps1.setString(1, user); 
-                    ps1.setString(2, code); 
-                    ps1.executeUpdate(); 
-                }catch (Exception e){
-                    System.out.print("Lỗi tạo insert mã" + e);
-                }
-            }
-            return true;
-        }catch (Exception e){
-            System.out.print("Lỗi tạo cập nhật mã" + e);
-            return false;
-        }
-        
-    }
-    
-    private String getUser(String mail)
-    {
-        try{ 
-            Connection con = SQLConnection.getSQLConnection();
-            String SQL = "SELECT MAND FROM NGUOIDUNG WHERE EMAIL=?";
-            PreparedStatement ps = con.prepareStatement(SQL); 
-            ps.setString(1, mail); 
-            ResultSet rs = ps.executeQuery(); 
-            
-            if (rs.next())
-                return rs.getString(1);
-        }catch (Exception e){
-            System.out.print("Lỗi tạo bảng lấy deadline" + e);
-            return null;
-        }
-        return null;
-    }
+   
     
     
     private Message prepareMessage(Session session, String fromUser, String toUser, String code){

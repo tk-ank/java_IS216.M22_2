@@ -138,16 +138,17 @@ public class DangNhap extends javax.swing.JFrame {
     private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
         String TenDN = inputUsername.getText();
         String Pass = inputPass.getText();
+        String encryptedPass = new SHA256().encryptThisString(Pass);
         
         try{
             Connection conn = null;
             conn = SQLConnection.getSQLConnection();
             
-            String SQL = "SELECT MAND FROM NGUOIDUNG WHERE MAND = ? and MATKHAU = ?";
+            String SQL = "SELECT MAND FROM NGUOIDUNG WHERE MAND = ? and MATKHAU COLLATE Latin1_General_CS_AS = ?";
             
             SQLServerPreparedStatement ps = (SQLServerPreparedStatement) conn.prepareStatement(SQL); 
             ps.setString(1, TenDN);
-            ps.setString(2, Pass);
+            ps.setString(2, encryptedPass);
             
             ResultSet rs = ps.executeQuery();
                     
