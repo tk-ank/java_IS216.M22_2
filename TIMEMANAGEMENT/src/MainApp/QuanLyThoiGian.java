@@ -67,12 +67,13 @@ public class QuanLyThoiGian extends javax.swing.JFrame {
         jlbTodolist = new javax.swing.JLabel();
         btnDangXuat = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(47, 46, 51));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1200, 800));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jpnView.setBackground(new java.awt.Color(204, 204, 204));
         jpnView.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,108 +81,89 @@ public class QuanLyThoiGian extends javax.swing.JFrame {
         jpnView1.setBackground(new java.awt.Color(204, 204, 204));
         jpnView.add(jpnView1, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 5, -1, -1));
 
+        jPanel1.add(jpnView, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 600, 500));
+
         jpnTrangChu.setBackground(new java.awt.Color(102, 102, 102));
         jpnTrangChu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlbTrangChu.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jlbTrangChu.setForeground(new java.awt.Color(255, 255, 255));
-        jlbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbTrangChu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbTrangChu.setText("Trang chủ");
-        jpnTrangChu.add(jlbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 2, 220, 50));
+        jpnTrangChu.add(jlbTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, 50));
+
+        jPanel1.add(jpnTrangChu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 200, 50));
 
         jpnThongTin.setBackground(new java.awt.Color(46, 51, 46));
         jpnThongTin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlbThongTin.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jlbThongTin.setForeground(new java.awt.Color(255, 255, 255));
-        jlbThongTin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbThongTin.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbThongTin.setText("Thông tin cá nhân");
         jlbThongTin.setToolTipText("");
-        jpnThongTin.add(jlbThongTin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 50));
+        jpnThongTin.add(jlbThongTin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, 50));
+
+        jPanel1.add(jpnThongTin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 200, 50));
 
         jpnTkb.setBackground(new java.awt.Color(46, 51, 46));
         jpnTkb.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlbTkb.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jlbTkb.setForeground(new java.awt.Color(255, 255, 255));
-        jlbTkb.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbTkb.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbTkb.setText("Thời khóa biểu");
         jlbTkb.setToolTipText("");
-        jpnTkb.add(jlbTkb, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 50));
+        jpnTkb.add(jlbTkb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, 50));
+
+        jPanel1.add(jpnTkb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 200, 50));
 
         jpnDeadline.setBackground(new java.awt.Color(46, 51, 46));
         jpnDeadline.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlbDeadline.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jlbDeadline.setForeground(new java.awt.Color(255, 255, 255));
-        jlbDeadline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbDeadline.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbDeadline.setText("Deadline");
         jlbDeadline.setToolTipText("");
-        jpnDeadline.add(jlbDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 220, 50));
+        jpnDeadline.add(jlbDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, 50));
+
+        jPanel1.add(jpnDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 200, 50));
 
         jpnTodolist.setBackground(new java.awt.Color(46, 51, 46));
         jpnTodolist.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlbTodolist.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jlbTodolist.setForeground(new java.awt.Color(255, 255, 255));
-        jlbTodolist.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbTodolist.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jlbTodolist.setText("Todo list");
         jlbTodolist.setToolTipText("");
-        jpnTodolist.add(jlbTodolist, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, -3, 230, 50));
+        jpnTodolist.add(jlbTodolist, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, 50));
+
+        jPanel1.add(jpnTodolist, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 200, 50));
 
         btnDangXuat.setBackground(new java.awt.Color(46, 51, 46));
         btnDangXuat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Đăng xuất");
         jLabel7.setToolTipText("");
-        btnDangXuat.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, -5, -1, 50));
+        btnDangXuat.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, 50));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpnTrangChu, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpnThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpnTkb, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpnDeadline, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jpnTodolist, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDangXuat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jpnView, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112)
-                        .addComponent(jpnTrangChu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jpnThongTin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jpnTkb, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jpnDeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jpnTodolist, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jpnView, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68))))
-        );
+        jPanel1.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 50));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -3, -1, 520));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
         setLocationRelativeTo(null);
@@ -193,7 +175,6 @@ public class QuanLyThoiGian extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnDangXuat;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbDeadline;
