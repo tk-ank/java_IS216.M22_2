@@ -57,6 +57,7 @@ public class DangKy extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         pnInfor = new java.awt.Panel();
         lbUsername = new javax.swing.JLabel();
@@ -262,12 +263,22 @@ public class DangKy extends javax.swing.JFrame {
         rFemale.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         rFemale.setText("Nữ");
         rFemale.setIconTextGap(8);
+        rFemale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rFemaleActionPerformed(evt);
+            }
+        });
         pnInfor.add(rFemale, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 225, 150, 25));
 
         rMale.setBackground(new java.awt.Color(254, 244, 230));
         rMale.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         rMale.setText("Nam");
         rMale.setIconTextGap(8);
+        rMale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rMaleActionPerformed(evt);
+            }
+        });
         pnInfor.add(rMale, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 225, 150, 25));
 
         inputName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -330,10 +341,6 @@ public class DangKy extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSignUp1ActionPerformed
 
     public boolean checkSpecialCharacter(String s) {
-     if (s == null || s.trim().isEmpty()) {
-         JOptionPane.showMessageDialog(this, "Tên đăng nhập sai định dạng", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
-         return false;
-     }
      Pattern p = Pattern.compile("[^A-Za-z0-9]");
      Matcher m = p.matcher(s);
     // boolean b = m.matches();
@@ -361,7 +368,16 @@ public class DangKy extends javax.swing.JFrame {
         }
     }
   
-    private boolean KiemTraNhap(String TenDN, String Pass, String RePass, String SDT)
+    private boolean KiemTraNhapDu(String TenDN, String Pass, String RePass, String Name, String SDT, String Email, String Uni)
+    {
+        if(TenDN == null || Pass == null || RePass == null || Name == null || SDT == null || Email == null || Uni == null)
+        {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đủ các thông tin", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+        }
+        return true;
+    }
+    
+    private boolean KiemTraNhapDung(String TenDN, String Pass, String RePass, String SDT)
     {
         if (checkSpecialCharacter(TenDN) == true && CheckPass(Pass, RePass) == true)
         {
@@ -371,11 +387,6 @@ public class DangKy extends javax.swing.JFrame {
     }
     
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-
-        // Tạo button group cho Giới tính
-        ButtonGroup bg = new ButtonGroup();
-        bg.add(rMale);
-        bg.add(rFemale);
         
         //Lấy dữ liệu nhập từ bàn phím
         String TenDN = inputUsername.getText();
@@ -383,42 +394,61 @@ public class DangKy extends javax.swing.JFrame {
         String RePass = inputRePass.getText();
         String HoTen = inputName.getText();
         int GTinh;
-        if(rMale.isSelected())
+        try
         {
-            GTinh = 1;
+            if(rMale.isSelected())
+            {
+                GTinh = 1;
+            }
+            else if(rFemale.isSelected())
+            {
+                GTinh = 0;
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
         }
-        else
+        catch(Exception ex)
         {
-            GTinh = 0;
+            System.out.print(ex);
         }
+        
         String SDT = inputPhone.getText();
         String Email = inputEmail.getText();
         String TenTruong = inputUni.getText();
         
-        if (KiemTraNhap(TenDN, Pass, RePass, SDT))
+        if (KiemTraNhapDu(TenDN, Pass, RePass, HoTen, SDT, Email, TenTruong))
         {
-            try{
-            Connection con;
-            con = SQLConnection.getSQLConnection(); 
-            String SQL = "INSERT INTO NGUOIDUNG(MAND, TENND, MATKHAU, GTINH, DTHOAI, EMAIL, TRUONG, NGDK) VALUES(?,?,?,?,?,?,?, (SELECT CONVERT (DATE,GETDATE())))";
-            PreparedStatement State = con.prepareStatement(SQL); 
-            State.setString(1, TenDN);
-            State.setString(2, HoTen);
-            State.setString(3, Pass);
-            State.setInt(4, GTinh);
-            State.setString(5, SDT);
-            State.setString(6, Email);
-            State.setString(7, TenTruong);
-            int st = State.executeUpdate();  
-            if (st == 1)
+            if (KiemTraNhapDung(TenDN, Pass, RePass, SDT))
             {
-                JOptionPane.showMessageDialog(this, "Bạn đã đăng ký tài khoản thành công");
-//                this.setVisible(false);
-                this.dispose();
-                new DangNhap().setVisible(true);
-            }
-            }catch(Exception ex){
-                System.out.print("Lỗi tại đăng ký "+ ex);
+                try
+                {
+                    Connection con;
+                    con = SQLConnection.getSQLConnection(); 
+                    String SQL = "INSERT INTO NGUOIDUNG(MAND, TENND, MATKHAU, GTINH, DTHOAI, EMAIL, TRUONG, NGDK) VALUES(?,?,?,?,?,?,?, (SELECT CONVERT (DATE,GETDATE())))";
+                    PreparedStatement State = con.prepareStatement(SQL); 
+                    State.setString(1, TenDN);
+                    State.setString(2, HoTen);
+                    State.setString(3, Pass);
+                    State.setInt(4, GTinh);
+                    State.setString(5, SDT);
+                    State.setString(6, Email);
+                    State.setString(7, TenTruong);
+                    int st = State.executeUpdate();  
+                    if (st == 1)
+                    {
+                        JOptionPane.showMessageDialog(this, "Bạn đã đăng ký tài khoản thành công");
+        //                this.setVisible(false);
+                        this.dispose();
+                        new DangNhap().setVisible(true);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    System.out.print("Lỗi tại đăng ký "+ ex);
+                }
             }
         }
         
@@ -435,6 +465,29 @@ public class DangKy extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_rAcceptActionPerformed
 
+    private void rMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rMaleActionPerformed
+        if (rMale.isSelected())
+        {
+            rFemale.setSelected(false);
+        }
+        else
+        {
+            rFemale.setSelected(true);
+        }
+    }//GEN-LAST:event_rMaleActionPerformed
+
+    private void rFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rFemaleActionPerformed
+        if (rFemale.isSelected())
+        {
+            rMale.setSelected(false);
+        }
+        else
+        {
+            rMale.setSelected(true);
+        }
+    }//GEN-LAST:event_rFemaleActionPerformed
+
+
     /**
      * @param args the command line arguments
      */
@@ -442,6 +495,7 @@ public class DangKy extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSignUp;
     private javax.swing.JButton btnSignUp1;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField inputEmail;
     private javax.swing.JTextField inputName;
     private javax.swing.JPasswordField inputPass;
