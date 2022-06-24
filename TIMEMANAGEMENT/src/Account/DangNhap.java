@@ -125,7 +125,7 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void lbForgotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbForgotMouseClicked
         // TODO add your handling code here:
-        this.setVisible(false);
+        this.dispose();
         new XacThucTaiKhoan().setVisible(true);
     }//GEN-LAST:event_lbForgotMouseClicked
 

@@ -4,11 +4,15 @@
  */
 package Account;
 
+import Check.EmailValidator;
+import Check.PhoneCheck;
+import Check.PhoneException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -179,6 +183,7 @@ public class DangKy extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jTextPane1);
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
         setName("frDangKy"); // NOI18N
 
@@ -323,7 +328,7 @@ public class DangKy extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,6 +346,10 @@ public class DangKy extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSignUp1ActionPerformed
 
     public boolean checkSpecialCharacter(String s) {
+     if (s == null || s.trim().isEmpty()) {
+         JOptionPane.showMessageDialog(this, "Tên đăng nhập sai định dạng", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
+         return false;
+     }
      Pattern p = Pattern.compile("[^A-Za-z0-9]");
      Matcher m = p.matcher(s);
     // boolean b = m.matches();
@@ -370,23 +379,55 @@ public class DangKy extends javax.swing.JFrame {
   
     private boolean KiemTraNhapDu(String TenDN, String Pass, String RePass, String Name, String SDT, String Email, String Uni)
     {
-        if(TenDN == null || Pass == null || RePass == null || Name == null || SDT == null || Email == null || Uni == null)
+        if(TenDN.isEmpty() || Pass.isEmpty() || RePass.isEmpty() || Name.isEmpty() || SDT.isEmpty() || Email.isEmpty() || Uni.isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập đủ các thông tin", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
-        return true;
+        else
+        {
+            return true;
+        }
     }
     
-    private boolean KiemTraNhapDung(String TenDN, String Pass, String RePass, String SDT)
+    private boolean CheckEmail(String Email)
     {
-        if (checkSpecialCharacter(TenDN) == true && CheckPass(Pass, RePass) == true)
+        EmailValidator validator = new EmailValidator();
+        
+        if (validator.validate(Email)) {
+            return true;
+        } 
+        else 
+        {
+            JOptionPane.showMessageDialog(this, "Email không hợp lệ", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    private boolean KiemTraNhapDung(String TenDN, String Pass, String RePass, String SDT, String Email)
+    {
+//        CheckPhone(SDT);
+        if (checkSpecialCharacter(TenDN) == true && CheckPass(Pass, RePass) == true && CheckEmail(Email) == true)
         {
             return true;
         }
         return false;
     }
     
+    private boolean KiemTraChon (JCheckBox rMale, JCheckBox rFemale)
+    {
+        if (rMale.isSelected() || rFemale.isSelected())
+            return true;
+        return false;
+
+    }
+    
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+
+        // Tạo button group cho Giới tính
+        ButtonGroup btnGroup = new ButtonGroup();
+        btnGroup.add(rMale);
+        btnGroup.add(rFemale);
         
         //Lấy dữ liệu nhập từ bàn phím
         String TenDN = inputUsername.getText();
@@ -407,14 +448,36 @@ public class DangKy extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-        
         String SDT = inputPhone.getText();
         String Email = inputEmail.getText();
         String TenTruong = inputUni.getText();
         
-        if (KiemTraNhapDu(TenDN, Pass, RePass, HoTen, SDT, Email, TenTruong))
+        if (KiemTraNhapDu(TenDN, Pass, RePass, HoTen, SDT, Email, TenTruong) == true)
         {
-            if (KiemTraNhapDung(TenDN, Pass, RePass, SDT))
+            if (KiemTraChon(rMale, rFemale))
+            {
+                if(rMale.isSelected())
+                {
+                    GTinh = 1;
+                }
+                else
+                {
+                    GTinh = 0;
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            PhoneCheck phoneCheck = new PhoneCheck();
+            try {
+                phoneCheck.checkPhone(SDT);
+            } catch (PhoneException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Sai định dạng", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            if (KiemTraNhapDung(TenDN, Pass, RePass, SDT, Email))
             {
                 String encryptedPass = new SHA256().encryptThisString(Pass);
                 try
@@ -434,7 +497,6 @@ public class DangKy extends javax.swing.JFrame {
                     if (st == 1)
                     {
                         JOptionPane.showMessageDialog(this, "Bạn đã đăng ký tài khoản thành công");
-        //                this.setVisible(false);
                         this.dispose();
                         new DangNhap().setVisible(true);
                     }
@@ -445,7 +507,6 @@ public class DangKy extends javax.swing.JFrame {
                 }
             }
         }
-        
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void rAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rAcceptActionPerformed
@@ -480,7 +541,6 @@ public class DangKy extends javax.swing.JFrame {
             rMale.setSelected(true);
         }
     }//GEN-LAST:event_rFemaleActionPerformed
-
 
     /**
      * @param args the command line arguments
