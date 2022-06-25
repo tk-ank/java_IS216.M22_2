@@ -224,9 +224,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue1">
           <Properties>
@@ -243,9 +240,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed1">
           <Properties>
@@ -262,9 +256,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Thu1">
           <Properties>
@@ -281,9 +272,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Fri1">
           <Properties>
@@ -300,9 +288,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Sat1">
           <Properties>
@@ -319,9 +304,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel25">
           <Properties>
@@ -358,9 +340,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue2">
           <Properties>
@@ -377,9 +356,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed2">
           <Properties>
@@ -396,9 +372,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Thu2">
           <Properties>
@@ -415,9 +388,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Fri2">
           <Properties>
@@ -434,9 +404,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Sat2">
           <Properties>
@@ -453,9 +420,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel33">
           <Properties>
@@ -492,9 +456,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue3">
           <Properties>
@@ -511,9 +472,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed3">
           <Properties>
@@ -530,9 +488,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Thu3">
           <Properties>
@@ -549,9 +504,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Fri3">
           <Properties>
@@ -568,9 +520,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Sat3">
           <Properties>
@@ -587,9 +536,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel40">
           <Properties>
@@ -626,9 +572,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue4">
           <Properties>
@@ -645,9 +588,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed4">
           <Properties>
@@ -664,9 +604,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Thu4">
           <Properties>
@@ -683,9 +620,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Fri4">
           <Properties>
@@ -702,9 +636,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Sat4">
           <Properties>
@@ -721,9 +652,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel47">
           <Properties>
@@ -760,9 +688,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue5">
           <Properties>
@@ -779,9 +704,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed5">
           <Properties>
@@ -798,9 +720,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Thu5">
           <Properties>
@@ -817,9 +736,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Fri5">
           <Properties>
@@ -836,9 +752,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Sat5">
           <Properties>
@@ -855,9 +768,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel54">
           <Properties>
@@ -894,9 +804,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue6">
           <Properties>
@@ -913,9 +820,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed6">
           <Properties>
@@ -932,9 +836,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Thu6">
           <Properties>
@@ -951,9 +852,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Fri6">
           <Properties>
@@ -970,9 +868,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Sat6">
           <Properties>
@@ -989,9 +884,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel61">
           <Properties>
@@ -1028,9 +920,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue7">
           <Properties>
@@ -1047,9 +936,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed7">
           <Properties>
@@ -1066,9 +952,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Thu7">
           <Properties>
@@ -1085,9 +968,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Fri7">
           <Properties>
@@ -1108,9 +988,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Sat7">
           <Properties>
@@ -1127,9 +1004,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel68">
           <Properties>
@@ -1166,9 +1040,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue8">
           <Properties>
@@ -1185,9 +1056,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed8">
           <Properties>
@@ -1204,9 +1072,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Thu8">
           <Properties>
@@ -1223,9 +1088,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Fri8">
           <Properties>
@@ -1242,9 +1104,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Sat8">
           <Properties>
@@ -1261,9 +1120,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel75">
           <Properties>
@@ -1300,9 +1156,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Tue9">
           <Properties>
@@ -1319,9 +1172,6 @@
               <Dimension value="[35, 15]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JLabel" name="Wed9">
           <Properties>
@@ -1502,5 +1352,156 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ti&#x1ebf;t &#x111;&#x1ea7;u: "/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="300" y="75" width="100" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="T&#xea;n m&#xf4;n h&#x1ecd;c:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="25" y="25" width="150" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="T&#xea;n m&#xf4;n h&#x1ecd;c khi click v&#xf4; label hi&#x1ec3;n th&#x1ecb; &#x1edf; &#x111;&#xe2;y"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="175" y="25" width="400" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Th&#x1ee9; hai"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="175" y="75" width="75" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ng&#xe0;y h&#x1ecd;c:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="25" y="75" width="150" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ti&#x1ebf;t cu&#x1ed1;i:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="450" y="75" width="100" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="400" y="75" width="25" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="5"/>
+      </AccessibilityProperties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="550" y="75" width="25" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="51" red="3a" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="450" y="110" width="125" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton3">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="51" red="3a" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="null"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="300" y="110" width="125" height="25"/>
+        </Constraint>
+      </Constraints>
+    </Component>
   </SubComponents>
 </Form>

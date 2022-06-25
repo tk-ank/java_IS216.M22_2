@@ -26,39 +26,184 @@ public class TodolistJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtbTodolist = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtbHoanThanh = new javax.swing.JTable();
+        jcbHThanh = new javax.swing.JCheckBox();
+        btnCapNhat = new javax.swing.JButton();
+        tfItem = new javax.swing.JTextField();
+        btnCapNhat1 = new javax.swing.JButton();
+        btnThem = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(254, 244, 230));
-        jPanel1.setPreferredSize(new java.awt.Dimension(789, 650));
+        jPanel2.setBackground(new java.awt.Color(254, 244, 230));
+        jPanel2.setPreferredSize(new java.awt.Dimension(789, 650));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Todolist");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Danh sách việc cần làm");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 95, 250, 25));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addComponent(jLabel1)
-                .addContainerGap(638, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jLabel1)
-                .addContainerGap(521, Short.MAX_VALUE))
-        );
+        jtbTodolist.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jtbTodolist);
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 125, 250, 300));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setText("Danh sách việc đã hoàn thành:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 10, -1, -1));
+
+        jtbHoanThanh.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jtbHoanThanh);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 125, 250, 300));
+
+        jcbHThanh.setBackground(new java.awt.Color(254, 244, 230));
+        jcbHThanh.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jcbHThanh.setText("Đã hoàn thành");
+        jPanel2.add(jcbHThanh, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 450, 125, 25));
+
+        btnCapNhat.setBackground(new java.awt.Color(58, 81, 153));
+        btnCapNhat.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCapNhat.setForeground(new java.awt.Color(255, 255, 255));
+        btnCapNhat.setText("Cập nhật");
+        btnCapNhat.setBorder(null);
+        btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapNhatActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCapNhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 450, 100, 25));
+        jPanel2.add(tfItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 260, 30));
+
+        btnCapNhat1.setText("Xóa");
+        btnCapNhat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCapNhat1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnCapNhat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 96, 31));
+
+        btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 96, 31));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
+        if (jcbHThanh.isSelected() && (jtbTodolist.getSelectedRow() >= 0)){
+            String TenCapNhat = listTenToDo.get(jtbTodolist.getSelectedRow());
+            try{
+                Connection conn = SQLConnection.getSQLConnection();
+                String Sql = "update TODOLIST\n" +
+                "set TRTHAI = ?\n" +
+                "where MAND = ? AND TENTODO = ?";
+                PreparedStatement ps = conn.prepareStatement(Sql);
+                ps.setInt(1,1);
+                ps.setString(2, this.User);
+                ps.setString(3, TenCapNhat);
+                ps.executeUpdate();
+            }
+            catch(Exception e){
+            }
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String Ngay = sdf.format(jDateChooser.getDate());
+            TaoBang(Ngay);
+            jcbHThanh.setSelected(false);
+        }
+        else {
+        }
+    }//GEN-LAST:event_btnCapNhatActionPerformed
+
+    private void btnCapNhat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhat1ActionPerformed
+
+        if (jtbHoanThanh.getSelectedRow() >= 0){
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String Ngay = sdf.format(jDateChooser.getDate());
+            String TenXoa = listTenHThanh.get(jtbHoanThanh.getSelectedRow());
+            try{
+                Connection conn = SQLConnection.getSQLConnection();
+                String Sql = "delete from TODOLIST\n" +
+                "where MAND = ? AND TENTODO = ? AND NGAYTODO = ?";
+                PreparedStatement ps = conn.prepareStatement(Sql);
+                ps.setString(1, this.User);
+                ps.setString(2, TenXoa);
+                ps.setString(3, Ngay);
+                ps.executeUpdate();
+            }
+            catch(Exception e){
+                System.out.print(e);
+            }
+            TaoBang(Ngay);
+        }
+        else {
+        }
+    }//GEN-LAST:event_btnCapNhat1ActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        String tenToDo = tfItem.getText();
+        if (!tenToDo.isEmpty()){
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String Ngay = sdf.format(jDateChooser.getDate());
+            try{
+                Connection con = SQLConnection.getSQLConnection();
+                String SQL = "INSERT INTO TODOLIST(MAND,TENTODO,NGAYTODO,TRTHAI) VALUES (?,?,?,0) ";
+                PreparedStatement ps = con.prepareStatement(SQL);
+                ps.setString(1,this.User);
+                ps.setString(2,tenToDo);
+                ps.setString(3,Ngay);
+                ps.executeUpdate();
+            }catch (Exception e){
+                System.out.print("Lá»—i thÃªm deadline" + e);
+            }
+            TaoBang(Ngay);
+        }
+    }//GEN-LAST:event_btnThemActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCapNhat;
+    private javax.swing.JButton btnCapNhat1;
+    private javax.swing.JButton btnThem;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JCheckBox jcbHThanh;
+    private javax.swing.JTable jtbHoanThanh;
+    private javax.swing.JTable jtbTodolist;
+    private javax.swing.JTextField tfItem;
     // End of variables declaration//GEN-END:variables
 }
