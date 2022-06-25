@@ -81,7 +81,7 @@ public class ChuyenManHinh {
                     System.out.print("deadline có user:"+this.User);
                     break;
                 case "Todolist":
-                    node = new TodolistJPanel();
+                    node = new TodolistJPanel(this.User);
                     break;
                 /*default:
                     node = new TrangChuJPanel();

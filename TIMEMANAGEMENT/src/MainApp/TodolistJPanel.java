@@ -4,6 +4,13 @@
  */
 package MainApp;
 
+import Account.SQLConnection;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author kyanh
@@ -13,8 +20,16 @@ public class TodolistJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TodolistJPanel
      */
-    public TodolistJPanel() {
+    private String User;
+    public TodolistJPanel(String user) {
         initComponents();
+        setVisible(true);
+        this.User = user;
+        Date date = new Date();
+        dcNgay.setDate(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String Ngay = sdf.format(dcNgay.getDate());
+        TaoBang(Ngay);
     }
 
     /**
@@ -38,6 +53,8 @@ public class TodolistJPanel extends javax.swing.JPanel {
         tfItem = new javax.swing.JTextField();
         btnCapNhat1 = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
+        dcNgay = new com.toedter.calendar.JDateChooser();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,8 +83,9 @@ public class TodolistJPanel extends javax.swing.JPanel {
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 125, 250, 300));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel2.setText("Danh sách việc đã hoàn thành:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 10, -1, -1));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Danh sách việc đã hoàn thành");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 95, 250, 25));
 
         jtbHoanThanh.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,23 +118,46 @@ public class TodolistJPanel extends javax.swing.JPanel {
             }
         });
         jPanel2.add(btnCapNhat, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 450, 100, 25));
-        jPanel2.add(tfItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 260, 30));
 
+        tfItem.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tfItem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(tfItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 425, 25));
+
+        btnCapNhat1.setBackground(new java.awt.Color(58, 81, 153));
+        btnCapNhat1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCapNhat1.setForeground(new java.awt.Color(255, 255, 255));
         btnCapNhat1.setText("Xóa");
+        btnCapNhat1.setBorder(null);
         btnCapNhat1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapNhat1ActionPerformed(evt);
             }
         });
-        jPanel2.add(btnCapNhat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 450, 96, 31));
+        jPanel2.add(btnCapNhat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 450, 100, 25));
 
+        btnThem.setBackground(new java.awt.Color(58, 81, 153));
+        btnThem.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
         btnThem.setText("Thêm");
+        btnThem.setBorder(null);
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemActionPerformed(evt);
             }
         });
-        jPanel2.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 96, 31));
+        jPanel2.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 25, 100, 25));
+
+        dcNgay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        dcNgay.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                dcNgayPropertyChange(evt);
+            }
+        });
+        jPanel2.add(dcNgay, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 65, 350, 25));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Ngày:");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 65, 75, 25));
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
     }// </editor-fold>//GEN-END:initComponents
@@ -138,7 +179,7 @@ public class TodolistJPanel extends javax.swing.JPanel {
             catch(Exception e){
             }
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String Ngay = sdf.format(jDateChooser.getDate());
+            String Ngay = sdf.format(dcNgay.getDate());
             TaoBang(Ngay);
             jcbHThanh.setSelected(false);
         }
@@ -150,7 +191,7 @@ public class TodolistJPanel extends javax.swing.JPanel {
 
         if (jtbHoanThanh.getSelectedRow() >= 0){
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String Ngay = sdf.format(jDateChooser.getDate());
+            String Ngay = sdf.format(dcNgay.getDate());
             String TenXoa = listTenHThanh.get(jtbHoanThanh.getSelectedRow());
             try{
                 Connection conn = SQLConnection.getSQLConnection();
@@ -175,7 +216,7 @@ public class TodolistJPanel extends javax.swing.JPanel {
         String tenToDo = tfItem.getText();
         if (!tenToDo.isEmpty()){
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String Ngay = sdf.format(jDateChooser.getDate());
+            String Ngay = sdf.format(dcNgay.getDate());
             try{
                 Connection con = SQLConnection.getSQLConnection();
                 String SQL = "INSERT INTO TODOLIST(MAND,TENTODO,NGAYTODO,TRTHAI) VALUES (?,?,?,0) ";
@@ -185,19 +226,84 @@ public class TodolistJPanel extends javax.swing.JPanel {
                 ps.setString(3,Ngay);
                 ps.executeUpdate();
             }catch (Exception e){
-                System.out.print("Lá»—i thÃªm deadline" + e);
+                System.out.print("Lỗi thêm todo" + e);
             }
             TaoBang(Ngay);
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
+    private void dcNgayPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dcNgayPropertyChange
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String Ngay = sdf.format(dcNgay.getDate());
+        TaoBang(Ngay);
+    }//GEN-LAST:event_dcNgayPropertyChange
+
+    ArrayList <String> listTenToDo = new ArrayList <String> () ;
+    ArrayList <String> listTenHThanh= new ArrayList <String> () ;
+
+    int MaTodo;
+    DefaultTableModel dtmTDL;
+    DefaultTableModel dtmHThanh;
+
+    
+    public void TaoBang(String Ngay){
+        listTenToDo.clear();
+        listTenHThanh.clear();
+        dtmTDL = new DefaultTableModel(){
+        @Override
+        public boolean isCellEditable(int row, int column) {
+           return false;
+        }};
+        dtmHThanh = new DefaultTableModel(){
+        @Override
+        public boolean isCellEditable(int row, int column) {
+           return false;
+        }};
+        String TieuDe1[] ={"Việc cần làm"}; 
+        dtmTDL.setColumnIdentifiers(TieuDe1);
+        jtbTodolist.setModel(dtmTDL);
+        String TieuDe2[] ={"Việc đã hoàn thành"}; 
+        dtmHThanh.setColumnIdentifiers(TieuDe2);
+        jtbHoanThanh.setModel(dtmHThanh);
+        setVisible(true);
+        TaoTodoList(Ngay);
+    }
+    
+    public void TaoTodoList(String Ngay){
+        try{
+            Connection conn = SQLConnection.getSQLConnection();
+            ResultSet rs;
+            String sql = "Select TENTODO, TRTHAI FROM TODOLIST WHERE MAND = ? AND NGAYTODO = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,this.User);
+            ps.setString(2,Ngay);
+            rs = ps.executeQuery();
+            while(rs.next())
+            {
+                if ("0".equals(rs.getString("TRTHAI"))){
+                    listTenToDo.add(rs.getString(1));
+                    dtmTDL.addRow(new String [] {rs.getString(1)});
+                }
+                else{
+                    listTenHThanh.add(rs.getString(1));
+                    dtmHThanh.addRow(new String [] {rs.getString(1)});
+                }
+            }
+        }
+        
+        catch(Exception e) 
+        {
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCapNhat;
     private javax.swing.JButton btnCapNhat1;
     private javax.swing.JButton btnThem;
+    private com.toedter.calendar.JDateChooser dcNgay;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
