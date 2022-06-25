@@ -144,7 +144,7 @@ public class SuaThongTin extends javax.swing.JFrame {
         jPanel2.add(btnSuaTT, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 150, 35));
 
         jlbLoi.setForeground(new java.awt.Color(255, 51, 51));
-        jPanel2.add(jlbLoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 260, 30));
+        jPanel2.add(jlbLoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 260, 30));
 
         btnHuy.setBackground(new java.awt.Color(255, 255, 255));
         btnHuy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

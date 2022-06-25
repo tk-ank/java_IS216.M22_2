@@ -4,17 +4,25 @@
  */
 package MainApp;
 
+import Account.SQLConnection;
+import java.sql.*;
+
 /**
  *
  * @author kyanh
  */
+
+
 public class ThemTKB extends javax.swing.JFrame {
 
     /**
      * Creates new form ThemTKB
      */
-    public ThemTKB() {
+    private String User;
+    
+    public ThemTKB(String user) {
         initComponents();
+        this.User = user;
     }
 
     /**
@@ -32,13 +40,13 @@ public class ThemTKB extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cbTCuoi = new javax.swing.JComboBox<>();
+        cbNgay = new javax.swing.JComboBox<>();
+        cbTDau = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        inputMonHoc = new javax.swing.JTextField();
+        btnHuy = new javax.swing.JButton();
+        btnThem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,47 +76,52 @@ public class ThemTKB extends javax.swing.JFrame {
         jLabel4.setText("Tiết đầu:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 170, 100, 25));
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 205, 250, 25));
+        cbTCuoi.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cbTCuoi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        cbTCuoi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(cbTCuoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 205, 250, 25));
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Thứ hai", "Thứ ba", "Thứ tư", "Thứ 5", "Thứ 6", "Thứ 7" }));
-        jComboBox2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 135, 250, 25));
+        cbNgay.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cbNgay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy" }));
+        cbNgay.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(cbNgay, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 135, 250, 25));
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
-        jComboBox3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 170, 250, 25));
+        cbTDau.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        cbTDau.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+        cbTDau.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(cbTDau, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 170, 250, 25));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Ngày:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 135, 100, 25));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 100, 250, 25));
+        inputMonHoc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        inputMonHoc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(inputMonHoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 100, 250, 25));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(58, 81, 153));
-        jButton1.setText("Hủy");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnHuy.setBackground(new java.awt.Color(255, 255, 255));
+        btnHuy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnHuy.setForeground(new java.awt.Color(58, 81, 153));
+        btnHuy.setText("Hủy");
+        btnHuy.setBorder(null);
+        btnHuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnHuyActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 100, 25));
+        jPanel1.add(btnHuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 100, 25));
 
-        jButton2.setBackground(new java.awt.Color(58, 81, 153));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Thêm");
-        jButton2.setBorder(null);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 240, 100, 25));
+        btnThem.setBackground(new java.awt.Color(58, 81, 153));
+        btnThem.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
+        btnThem.setText("Thêm");
+        btnThem.setBorder(null);
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnThem, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 240, 100, 25));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,20 +139,37 @@ public class ThemTKB extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnHuyActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        try{
+            Connection con = SQLConnection.getSQLConnection();
+            String SQL = "INSERT INTO TKB(MAND, TENMH, NGHOC, TIETDAU, TIETCUOI) VALUES (?,?,?,?,?) ";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, User);
+            ps.setString(2,inputMonHoc.getText());
+            ps.setString(3, cbNgay.getSelectedItem().toString());
+            ps.setInt(4, Integer.parseInt(cbTDau.getSelectedItem().toString()));
+            ps.setInt(5, Integer.parseInt(cbTCuoi.getSelectedItem().toString()));
+            ps.executeUpdate();
+        }catch (Exception e){
+            System.out.print("Lỗi thêm thời khóa biểu" + e); 
+        }
+    }//GEN-LAST:event_btnThemActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton btnHuy;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JComboBox<String> cbNgay;
+    private javax.swing.JComboBox<String> cbTCuoi;
+    private javax.swing.JComboBox<String> cbTDau;
+    private javax.swing.JTextField inputMonHoc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -147,6 +177,5 @@ public class ThemTKB extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

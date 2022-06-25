@@ -74,7 +74,7 @@ public class ChuyenManHinh {
                     node = new ThongTinJPanel(this.User);
                     break;
                 case "Tkb":
-                    node = new TkbJPanel();
+                    node = new TkbJPanel(this.User);
                     break;
                 case "Deadline":
                     node = new DeadlineJPanel(this.User);
