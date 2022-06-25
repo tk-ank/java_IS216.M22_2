@@ -197,54 +197,35 @@ public class DeadlineJPanel extends javax.swing.JPanel {
         jTabbedPane1.addTab("Deadline", panelDL);
 
         panelThemDL.setBackground(new java.awt.Color(254, 244, 230));
+        panelThemDL.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Thông tin deadline");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Thông tin deadline:");
+        panelThemDL.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, -1, -1));
 
-        jLabel5.setText("Hạn");
+        txtTenDL_ThemDL.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtTenDL_ThemDL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelThemDL.add(txtTenDL_ThemDL, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 25, 350, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("Hạn:");
+        panelThemDL.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 75, -1, -1));
+
+        btnThemDL.setBackground(new java.awt.Color(58, 81, 153));
+        btnThemDL.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnThemDL.setForeground(new java.awt.Color(255, 255, 255));
         btnThemDL.setText("Thêm Deadline");
+        btnThemDL.setBorder(null);
         btnThemDL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemDLActionPerformed(evt);
             }
         });
+        panelThemDL.add(btnThemDL, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 125, 150, 35));
 
+        dateHanDL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         dateHanDL.setDateFormatString("dd/MM/yyyy");
-
-        javax.swing.GroupLayout panelThemDLLayout = new javax.swing.GroupLayout(panelThemDL);
-        panelThemDL.setLayout(panelThemDLLayout);
-        panelThemDLLayout.setHorizontalGroup(
-            panelThemDLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelThemDLLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(panelThemDLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(panelThemDLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtTenDL_ThemDL, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                    .addComponent(dateHanDL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(326, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelThemDLLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnThemDL)
-                .addGap(36, 36, 36))
-        );
-        panelThemDLLayout.setVerticalGroup(
-            panelThemDLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelThemDLLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(panelThemDLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtTenDL_ThemDL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelThemDLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(dateHanDL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(btnThemDL)
-                .addContainerGap(320, Short.MAX_VALUE))
-        );
+        panelThemDL.add(dateHanDL, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 75, 350, 25));
 
         jTabbedPane1.addTab("Thêm Deadline", panelThemDL);
 

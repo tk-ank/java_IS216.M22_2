@@ -648,11 +648,9 @@ public class TkbJPanel extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 150, 25));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setText("Tên môn học khi click vô label hiển thị ở đây");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 25, 400, 25));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel4.setText("Thứ hai");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 75, 75, 25));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -664,11 +662,9 @@ public class TkbJPanel extends javax.swing.JPanel {
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 75, 100, 25));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("1");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 75, 25, 25));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("3");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 75, 25, 25));
         jLabel8.getAccessibleContext().setAccessibleName("5");
 
