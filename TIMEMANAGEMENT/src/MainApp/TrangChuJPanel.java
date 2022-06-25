@@ -24,7 +24,6 @@ public class TrangChuJPanel extends javax.swing.JPanel {
     public TrangChuJPanel(String user) throws IOException {
         initComponents();
         this.User = user;
-        this.add(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Home.png"))));
     }
 
     /**
