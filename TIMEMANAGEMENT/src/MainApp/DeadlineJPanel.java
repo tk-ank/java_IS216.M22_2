@@ -71,6 +71,8 @@ public class DeadlineJPanel extends javax.swing.JPanel {
         panelDL.setBackground(new java.awt.Color(254, 244, 230));
         panelDL.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tableDL.setBackground(new java.awt.Color(254, 244, 230));
+        tableDL.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tableDL.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tableDL.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,7 +129,7 @@ public class DeadlineJPanel extends javax.swing.JPanel {
                 chboxFinishActionPerformed(evt);
             }
         });
-        panelDL.add(chboxFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 125, 25));
+        panelDL.add(chboxFinish, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 445, 125, 25));
 
         btnSua.setBackground(new java.awt.Color(58, 81, 153));
         btnSua.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

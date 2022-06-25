@@ -104,6 +104,16 @@ public class TkbJPanel extends javax.swing.JPanel {
         Thu10 = new javax.swing.JLabel();
         Fri10 = new javax.swing.JLabel();
         Sat10 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(254, 244, 230));
         setPreferredSize(new java.awt.Dimension(700, 500));
@@ -183,42 +193,36 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon1.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon1);
-        Mon1.getAccessibleContext().setAccessibleName("");
 
         Tue1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue1.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue1);
-        Tue1.getAccessibleContext().setAccessibleName("");
 
         Wed1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Wed1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Wed1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Wed1.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Wed1);
-        Wed1.getAccessibleContext().setAccessibleName("");
 
         Thu1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Thu1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Thu1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Thu1.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Thu1);
-        Thu1.getAccessibleContext().setAccessibleName("");
 
         Fri1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Fri1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Fri1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Fri1.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri1);
-        Fri1.getAccessibleContext().setAccessibleName("");
 
         Sat1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat1.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Sat1);
-        Sat1.getAccessibleContext().setAccessibleName("");
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -233,42 +237,36 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon2.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon2);
-        Mon2.getAccessibleContext().setAccessibleName("");
 
         Tue2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue2.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue2);
-        Tue2.getAccessibleContext().setAccessibleName("");
 
         Wed2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Wed2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Wed2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Wed2.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Wed2);
-        Wed2.getAccessibleContext().setAccessibleName("");
 
         Thu2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Thu2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Thu2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Thu2.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Thu2);
-        Thu2.getAccessibleContext().setAccessibleName("");
 
         Fri2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Fri2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Fri2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Fri2.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri2);
-        Fri2.getAccessibleContext().setAccessibleName("");
 
         Sat2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat2.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Sat2);
-        Sat2.getAccessibleContext().setAccessibleName("");
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -283,42 +281,36 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon3.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon3);
-        Mon3.getAccessibleContext().setAccessibleName("");
 
         Tue3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue3.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue3);
-        Tue3.getAccessibleContext().setAccessibleName("");
 
         Wed3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Wed3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Wed3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Wed3.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Wed3);
-        Wed3.getAccessibleContext().setAccessibleName("");
 
         Thu3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Thu3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Thu3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Thu3.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Thu3);
-        Thu3.getAccessibleContext().setAccessibleName("");
 
         Fri3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Fri3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Fri3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Fri3.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri3);
-        Fri3.getAccessibleContext().setAccessibleName("");
 
         Sat3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat3.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Sat3);
-        Sat3.getAccessibleContext().setAccessibleName("");
 
         jLabel40.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -333,42 +325,36 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon4.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon4);
-        Mon4.getAccessibleContext().setAccessibleName("");
 
         Tue4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue4.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue4);
-        Tue4.getAccessibleContext().setAccessibleName("");
 
         Wed4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Wed4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Wed4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Wed4.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Wed4);
-        Wed4.getAccessibleContext().setAccessibleName("");
 
         Thu4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Thu4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Thu4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Thu4.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Thu4);
-        Thu4.getAccessibleContext().setAccessibleName("");
 
         Fri4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Fri4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Fri4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Fri4.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri4);
-        Fri4.getAccessibleContext().setAccessibleName("");
 
         Sat4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat4.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Sat4);
-        Sat4.getAccessibleContext().setAccessibleName("");
 
         jLabel47.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -383,42 +369,36 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon5.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon5);
-        Mon5.getAccessibleContext().setAccessibleName("");
 
         Tue5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue5.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue5);
-        Tue5.getAccessibleContext().setAccessibleName("");
 
         Wed5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Wed5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Wed5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Wed5.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Wed5);
-        Wed5.getAccessibleContext().setAccessibleName("");
 
         Thu5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Thu5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Thu5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Thu5.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Thu5);
-        Thu5.getAccessibleContext().setAccessibleName("");
 
         Fri5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Fri5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Fri5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Fri5.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri5);
-        Fri5.getAccessibleContext().setAccessibleName("");
 
         Sat5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat5.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Sat5);
-        Sat5.getAccessibleContext().setAccessibleName("");
 
         jLabel54.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -433,42 +413,36 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon6.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon6);
-        Mon6.getAccessibleContext().setAccessibleName("");
 
         Tue6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue6.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue6);
-        Tue6.getAccessibleContext().setAccessibleName("");
 
         Wed6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Wed6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Wed6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Wed6.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Wed6);
-        Wed6.getAccessibleContext().setAccessibleName("");
 
         Thu6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Thu6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Thu6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Thu6.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Thu6);
-        Thu6.getAccessibleContext().setAccessibleName("");
 
         Fri6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Fri6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Fri6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Fri6.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri6);
-        Fri6.getAccessibleContext().setAccessibleName("");
 
         Sat6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat6.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Sat6);
-        Sat6.getAccessibleContext().setAccessibleName("");
 
         jLabel61.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -483,28 +457,24 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon7.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon7);
-        Mon7.getAccessibleContext().setAccessibleName("");
 
         Tue7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue7.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue7);
-        Tue7.getAccessibleContext().setAccessibleName("");
 
         Wed7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Wed7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Wed7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Wed7.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Wed7);
-        Wed7.getAccessibleContext().setAccessibleName("");
 
         Thu7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Thu7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Thu7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Thu7.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Thu7);
-        Thu7.getAccessibleContext().setAccessibleName("");
 
         Fri7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Fri7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -513,14 +483,12 @@ public class TkbJPanel extends javax.swing.JPanel {
         Fri7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         Fri7.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri7);
-        Fri7.getAccessibleContext().setAccessibleName("");
 
         Sat7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat7.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Sat7);
-        Sat7.getAccessibleContext().setAccessibleName("");
 
         jLabel68.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -535,42 +503,36 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon8.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon8);
-        Mon8.getAccessibleContext().setAccessibleName("");
 
         Tue8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue8.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue8);
-        Tue8.getAccessibleContext().setAccessibleName("");
 
         Wed8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Wed8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Wed8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Wed8.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Wed8);
-        Wed8.getAccessibleContext().setAccessibleName("");
 
         Thu8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Thu8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Thu8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Thu8.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Thu8);
-        Thu8.getAccessibleContext().setAccessibleName("");
 
         Fri8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Fri8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Fri8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Fri8.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri8);
-        Fri8.getAccessibleContext().setAccessibleName("");
 
         Sat8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat8.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Sat8);
-        Sat8.getAccessibleContext().setAccessibleName("");
 
         jLabel75.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -585,14 +547,12 @@ public class TkbJPanel extends javax.swing.JPanel {
         Mon9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Mon9.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Mon9);
-        Mon9.getAccessibleContext().setAccessibleName("");
 
         Tue9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Tue9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Tue9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Tue9.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Tue9);
-        Tue9.getAccessibleContext().setAccessibleName("");
 
         Wed9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Wed9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -662,6 +622,53 @@ public class TkbJPanel extends javax.swing.JPanel {
         jPanel1.add(Sat10);
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 150, 550, 330));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Tiết đầu: ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 75, 100, 25));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Tên môn học:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 150, 25));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Tên môn học khi click vô label hiển thị ở đây");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 25, 400, 25));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Thứ hai");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 75, 75, 25));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setText("Ngày học:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 75, 150, 25));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setText("Tiết cuối:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 75, 100, 25));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("1");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 75, 25, 25));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("1");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 75, 25, 25));
+        jLabel8.getAccessibleContext().setAccessibleName("5");
+
+        jButton2.setBackground(new java.awt.Color(58, 81, 153));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Sửa");
+        jButton2.setBorder(null);
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 125, 25));
+
+        jButton3.setBackground(new java.awt.Color(58, 81, 153));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Thêm");
+        jButton3.setBorder(null);
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 125, 25));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -726,22 +733,32 @@ public class TkbJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel Wed7;
     private javax.swing.JLabel Wed8;
     private javax.swing.JLabel Wed9;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
