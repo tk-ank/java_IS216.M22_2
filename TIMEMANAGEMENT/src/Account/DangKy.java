@@ -239,7 +239,7 @@ public class DangKy extends javax.swing.JFrame {
         });
         pnInfor.add(rAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 475, -1, -1));
 
-        btnSignUp.setBackground(new java.awt.Color(60, 47, 37));
+        btnSignUp.setBackground(new java.awt.Color(58, 81, 153));
         btnSignUp.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
         btnSignUp.setText("ĐĂNG KÝ");
@@ -298,7 +298,7 @@ public class DangKy extends javax.swing.JFrame {
 
         btnSignUp1.setBackground(new java.awt.Color(255, 255, 255));
         btnSignUp1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnSignUp1.setForeground(new java.awt.Color(60, 47, 37));
+        btnSignUp1.setForeground(new java.awt.Color(58, 81, 153));
         btnSignUp1.setText("HỦY");
         btnSignUp1.setActionCommand("ĐANG KÝ");
         btnSignUp1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
