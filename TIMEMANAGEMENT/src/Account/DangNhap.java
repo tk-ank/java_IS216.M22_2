@@ -160,11 +160,11 @@ public class DangNhap extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(this,"Tài khoản hoặc mật khẩu sai","Sai mật khẩu!",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this,"Tài khoản hoặc mật khẩu sai","Lỗi đăng nhập",JOptionPane.ERROR_MESSAGE);
             }
         }
         catch (Exception ex){
-            System.out.println();
+                JOptionPane.showMessageDialog(this,ex.getMessage() ,"Lỗi không xác định",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnSignInActionPerformed
 

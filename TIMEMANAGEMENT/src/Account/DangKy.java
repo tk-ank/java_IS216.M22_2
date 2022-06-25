@@ -355,22 +355,18 @@ public class DangKy extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSignUp1ActionPerformed
 
     public boolean checkSpecialCharacter(String s) {
-     if (s == null || s.trim().isEmpty()) {
-         JOptionPane.showMessageDialog(this, "Tên đăng nhập sai định dạng", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
-         return false;
-     }
-     Pattern p = Pattern.compile("[^A-Za-z0-9]");
-     Matcher m = p.matcher(s);
-    // boolean b = m.matches();
-     boolean b = m.find();
-     if (b)
-     {
-         JOptionPane.showMessageDialog(this, "Tên đăng nhập sai định dạng", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
-         return false;
-     }
-        
-     else
-         return true;
+        Pattern p = Pattern.compile("[^A-Za-z0-9]");
+        Matcher m = p.matcher(s);
+       // boolean b = m.matches();
+        boolean b = m.find();
+        if (b)
+        {
+            JOptionPane.showMessageDialog(this, "Tên đăng nhập không dấu và không được có ký tự đặc biệt!", "Sai định dạng", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+
+        else
+            return true;
     }
     
     SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
@@ -389,9 +385,9 @@ public class DangKy extends javax.swing.JFrame {
         }
     }
   
-    private boolean KiemTraNhapDu(String TenDN, String Pass, String RePass, String Name, String NgSinh, String SDT, String Email, String Uni)
+    private boolean KiemTraNhapDu(String TenDN, String Pass, String RePass, String Name, String SDT, String Email, String Uni)
     {
-        if(TenDN.isEmpty() || Pass.isEmpty() || RePass.isEmpty() || Name.isEmpty() || NgSinh.isEmpty() || SDT.isEmpty() || Email.isEmpty() || Uni.isEmpty())
+        if(TenDN.isEmpty() || Pass.isEmpty() || RePass.isEmpty() || Name.isEmpty() || SDT.isEmpty() || Email.isEmpty() || Uni.isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập đủ các thông tin", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
             return false;
@@ -416,9 +412,8 @@ public class DangKy extends javax.swing.JFrame {
         }
     }
 
-    private boolean KiemTraNhapDung(String TenDN, String Pass, String RePass, String SDT, String Email)
+    private boolean KiemTraNhapDung(String TenDN, String Pass, String RePass, String Email)
     {
-//        CheckPhone(SDT);
         if (checkSpecialCharacter(TenDN) == true && CheckPass(Pass, RePass) == true && CheckEmail(Email) == true)
         {
             return true;
@@ -447,33 +442,33 @@ public class DangKy extends javax.swing.JFrame {
         String RePass = inputRePass.getText();
         String HoTen = inputName.getText();
         int GTinh;
-            if(rMale.isSelected())
-            {
-                GTinh = 1;
-            }
-            else if(rFemale.isSelected())
-            {
-                GTinh = 0;
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
+//            if(rMale.isSelected())
+//            {
+//                GTinh = 1;
+//            }
+//            else if(rFemale.isSelected())
+//            {
+//                GTinh = 0;
+//            }
+//            else
+//            {
+//                JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
         String NgSinh;
-        try{
-            NgSinh = sdf_MMddyyyy.format(dcNgSinh.getDate());
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày sinh", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
-            return;
-        };
         
         String SDT = inputPhone.getText();
         String Email = inputEmail.getText();
         String TenTruong = inputUni.getText();
         
-        if (KiemTraNhapDu(TenDN, Pass, RePass, HoTen, NgSinh, SDT, Email, TenTruong) == true)
+        if (KiemTraNhapDu(TenDN, Pass, RePass, HoTen, SDT, Email, TenTruong) == true)
         {
+            try{
+                NgSinh = sdf_MMddyyyy.format(dcNgSinh.getDate());
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             if (KiemTraChon(rMale, rFemale))
             {
                 if(rMale.isSelected())
@@ -487,17 +482,21 @@ public class DangKy extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+                return;
             }
+            
+            
             
             PhoneCheck phoneCheck = new PhoneCheck();
             try {
                 phoneCheck.checkPhone(SDT);
             } catch (PhoneException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage(), "Sai định dạng", JOptionPane.ERROR_MESSAGE);
+                return;
             }
             
-            if (KiemTraNhapDung(TenDN, Pass, RePass, SDT, Email))
+            if (KiemTraNhapDung(TenDN, Pass, RePass, Email))
             {
                 String encryptedPass = new SHA256().encryptThisString(Pass);
                 try
@@ -521,10 +520,15 @@ public class DangKy extends javax.swing.JFrame {
                         this.dispose();
                         new DangNhap().setVisible(true);
                     }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(this, "Đăng ký không thành công", "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
+
+                    }
                 }
                 catch(Exception ex)
                 {
-                    System.out.print("Lỗi tại đăng ký "+ ex);
+                    JOptionPane.showMessageDialog(this, "Đăng ký không thành công \n" +ex.getMessage(), "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
