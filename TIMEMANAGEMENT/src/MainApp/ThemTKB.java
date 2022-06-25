@@ -6,6 +6,7 @@ package MainApp;
 
 import Account.SQLConnection;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -102,7 +103,7 @@ public class ThemTKB extends javax.swing.JFrame {
         btnHuy.setBackground(new java.awt.Color(255, 255, 255));
         btnHuy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnHuy.setForeground(new java.awt.Color(58, 81, 153));
-        btnHuy.setText("Quay lại");
+        btnHuy.setText("Hủy");
         btnHuy.setBorder(null);
         btnHuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +138,7 @@ public class ThemTKB extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
@@ -153,7 +155,12 @@ public class ThemTKB extends javax.swing.JFrame {
             ps.setString(3, cbNgay.getSelectedItem().toString());
             ps.setInt(4, Integer.parseInt(cbTDau.getSelectedItem().toString()));
             ps.setInt(5, Integer.parseInt(cbTCuoi.getSelectedItem().toString()));
-            ps.executeUpdate();
+            int kq = ps.executeUpdate();
+            if(kq != 0)
+            {
+                JOptionPane.showMessageDialog(this,"Thêm thời khóa biểu thành công");
+                this.dispose();
+            }
         }catch (Exception e){
             System.out.print("Lỗi thêm thời khóa biểu" + e); 
         }

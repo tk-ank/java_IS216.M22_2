@@ -153,7 +153,7 @@ public class DangNhap extends javax.swing.JFrame {
             ResultSet rs = ps.executeQuery();
                     
             if(rs.next())
-            {
+            {;
                 JOptionPane.showMessageDialog(this,"Đăng nhập thành công");
                 this.dispose();
                 new QuanLyThoiGian(rs.getString(1)).setVisible(true);
