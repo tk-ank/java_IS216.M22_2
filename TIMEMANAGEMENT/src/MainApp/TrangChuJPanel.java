@@ -4,6 +4,13 @@
  */
 package MainApp;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author kyanh
@@ -14,9 +21,10 @@ public class TrangChuJPanel extends javax.swing.JPanel {
      * Creates new form TrangChuJPanel
      */
     private String User;
-    public TrangChuJPanel(String user) {
+    public TrangChuJPanel(String user) throws IOException {
         initComponents();
         this.User = user;
+        this.add(new JLabel(new ImageIcon(getClass().getClassLoader().getResource("Home.png"))));
     }
 
     /**

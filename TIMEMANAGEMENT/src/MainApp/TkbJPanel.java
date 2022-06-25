@@ -5,8 +5,11 @@
 package MainApp;
 
 import Account.SQLConnection;
+import java.awt.event.KeyEvent;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.JLabel;
 import static javax.swing.UIManager.getString;
 
 /**
@@ -22,6 +25,7 @@ public class TkbJPanel extends javax.swing.JPanel {
     public TkbJPanel(String user) {
         initComponents();
         this.User = user;
+        LayTKB();
     }
 
     /**
@@ -124,6 +128,11 @@ public class TkbJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(254, 244, 230));
         setPreferredSize(new java.awt.Dimension(700, 500));
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(254, 244, 230));
@@ -666,7 +675,7 @@ public class TkbJPanel extends javax.swing.JPanel {
         jButton2.setBackground(new java.awt.Color(58, 81, 153));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Sửa");
+        jButton2.setText("Xóa");
         jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -689,55 +698,217 @@ public class TkbJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new ThemTKB(User).setVisible(true);
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         new SuaTKB().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_F5)
+        {
+            LayTKB();
+        }
+    }//GEN-LAST:event_formKeyPressed
+
     private void LayTKB()
     {
-        
         String NgayHoc;
         int TDau, TCuoi;
+        
+        ArrayList <JLabel> ListMon = new ArrayList <JLabel>();
+        ListMon.add(Mon1);
+        ListMon.add(Mon2);
+        ListMon.add(Mon3);
+        ListMon.add(Mon4);
+        ListMon.add(Mon5);
+        ListMon.add(Mon6);
+        ListMon.add(Mon7);
+        ListMon.add(Mon8);
+        ListMon.add(Mon9);
+        ListMon.add(Mon10);
+        
+        ArrayList <JLabel> ListTue = new ArrayList <JLabel>();
+        ListTue.add(Tue1);
+        ListTue.add(Tue2);
+        ListTue.add(Tue3);
+        ListTue.add(Tue4);
+        ListTue.add(Tue5);
+        ListTue.add(Tue6);
+        ListTue.add(Tue7);
+        ListTue.add(Tue8);
+        ListTue.add(Tue9);
+        ListTue.add(Tue10);
+        
+        ArrayList <JLabel> ListWed = new ArrayList <JLabel>();
+        ListWed.add(Wed1);
+        ListWed.add(Wed2);
+        ListWed.add(Wed3);
+        ListWed.add(Wed4);
+        ListWed.add(Wed5);
+        ListWed.add(Wed6);
+        ListWed.add(Wed7);
+        ListWed.add(Wed8);
+        ListWed.add(Wed9);
+        ListWed.add(Wed10);
+        
+        ArrayList <JLabel> ListThu = new ArrayList <JLabel>();
+        ListThu.add(Thu1);
+        ListThu.add(Thu2);
+        ListThu.add(Thu3);
+        ListThu.add(Thu4);
+        ListThu.add(Thu5);
+        ListThu.add(Thu6);
+        ListThu.add(Thu7);
+        ListThu.add(Thu8);
+        ListThu.add(Thu9);
+        ListThu.add(Thu10);
+        
+        ArrayList <JLabel> ListFri = new ArrayList <JLabel>();
+        ListFri.add(Fri1);
+        ListFri.add(Fri2);
+        ListFri.add(Fri3);
+        ListFri.add(Fri4);
+        ListFri.add(Fri5);
+        ListFri.add(Fri6);
+        ListFri.add(Fri7);
+        ListFri.add(Fri8);
+        ListFri.add(Fri9);
+        ListFri.add(Fri10);
+        
+        ArrayList <JLabel> ListSat = new ArrayList <JLabel>();
+        ListSat.add(Sat1);
+        ListSat.add(Sat2);
+        ListSat.add(Sat3);
+        ListSat.add(Sat4);
+        ListSat.add(Sat5);
+        ListSat.add(Sat6);
+        ListSat.add(Sat7);
+        ListSat.add(Sat8);
+        ListSat.add(Sat9);
+        ListSat.add(Sat10);
         
         try{
             Connection con = SQLConnection.getSQLConnection();
             ResultSet rs;
-            String SQL = "SELECT FORM TKB(TENMH, NGHOC, TIETDAU, TIETCUOI) WHERE MAND = ?";
+            String SQL = "SELECT TENMH, NGHOC, TIETDAU, TIETCUOI FROM TKB WHERE MAND = ?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, User);
             rs = ps.executeQuery();
-            SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
-            String ngay = sdf_ddMMyyyy.format(rs.getDate("NGHOC"));
-            NgayHoc = ngay;
-//            TDau = rs.getInt("TIETDAU");
-//            TCuoi = rs.getInt("TIETCUOI");
-            
+//            SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
+//            String ngay = sdf_ddMMyyyy.format(rs.getDate("NGHOC"));
             while(rs.next())
-            {
+            { 
+                NgayHoc = rs.getString("NGHOC");
+                System.out.println(NgayHoc);
                 switch(NgayHoc)
                 {
                     case "Thứ hai":
                     {
                         Connection conn = SQLConnection.getSQLConnection();
                         ResultSet rs1;
-                        String sql = "SELECT FORM TKB(TENMH, TIETDAU, TIETCUOI) WHERE MAND = ? AND NGHOC = Thứ hai";
+                        String sql = "SELECT TENMH, TIETDAU, TIETCUOI FROM TKB WHERE MAND = ? AND NGHOC = ?";
                         PreparedStatement ps1 = conn.prepareStatement(sql);
                         ps1.setString(1, User);
+                        ps1.setString(2, NgayHoc);
                         TDau = rs.getInt("TIETDAU");
                         TCuoi = rs.getInt("TIETCUOI");
-                        for(int i = TDau; i <= TCuoi; i++)
+                        for(int i = TDau - 1; i < TCuoi; i++)
                         {
-                            
+                            ListMon.get(i).setText(rs.getString("TENMH"));
                         }
+                        break;
                     }
-                        
-                }
+                    
+                    case "Thứ ba":
+                    {
+                        Connection conn = SQLConnection.getSQLConnection();
+                        ResultSet rs1;
+                        String sql = "SELECT TENMH, TIETDAU, TIETCUOI FROM TKB WHERE MAND = ? AND NGHOC = ?";
+                        PreparedStatement ps1 = conn.prepareStatement(sql);
+                        ps1.setString(1, User);
+                        ps1.setString(2, NgayHoc);
+                        TDau = rs.getInt("TIETDAU");
+                        TCuoi = rs.getInt("TIETCUOI");
+                        for(int i = TDau - 1; i < TCuoi; i++)
+                        {
+                            ListTue.get(i).setText(rs.getString("TENMH"));
+                        }
+                        break;
+                    }
+                    
+                    case "Thứ tư":
+                    {
+                        Connection conn = SQLConnection.getSQLConnection();
+                        ResultSet rs1;
+                        String sql = "SELECT TENMH, TIETDAU, TIETCUOI FROM TKB WHERE MAND = ? AND NGHOC = ?";
+                        PreparedStatement ps1 = conn.prepareStatement(sql);
+                        ps1.setString(1, User);
+                        ps1.setString(2, NgayHoc);
+                        TDau = rs.getInt("TIETDAU");
+                        TCuoi = rs.getInt("TIETCUOI");
+                        for(int i = TDau - 1; i < TCuoi; i++)
+                        {
+                            ListWed.get(i).setText(rs.getString("TENMH"));
+                        }
+                        break;
+                    }
+                    
+                    case "Thứ năm":
+                    {
+                        Connection conn = SQLConnection.getSQLConnection();
+                        ResultSet rs1;
+                        String sql = "SELECT TENMH, TIETDAU, TIETCUOI FROM TKB WHERE MAND = ? AND NGHOC = ?";
+                        PreparedStatement ps1 = conn.prepareStatement(sql);
+                        ps1.setString(1, User);
+                        ps1.setString(2, NgayHoc);
+                        TDau = rs.getInt("TIETDAU");
+                        TCuoi = rs.getInt("TIETCUOI");
+                        for(int i = TDau - 1; i < TCuoi; i++)
+                        {
+                            ListThu.get(i).setText(rs.getString("TENMH"));
+                        }
+                        break;
+                    }
+                    
+                    case "Thứ sáu":
+                    {
+                        Connection conn = SQLConnection.getSQLConnection();
+                        ResultSet rs1;
+                        String sql = "SELECT TENMH, TIETDAU, TIETCUOI FROM TKB WHERE MAND = ? AND NGHOC = ?";
+                        PreparedStatement ps1 = conn.prepareStatement(sql);
+                        ps1.setString(1, User);
+                        ps1.setString(2, NgayHoc);
+                        TDau = rs.getInt("TIETDAU");
+                        TCuoi = rs.getInt("TIETCUOI");
+                        for(int i = TDau - 1; i < TCuoi; i++)
+                        {
+                            ListFri.get(i).setText(rs.getString("TENMH"));
+                        }
+                        break;
+                    }
+                    
+                    case "Thứ bảy":
+                    {
+                        Connection conn = SQLConnection.getSQLConnection();
+                        ResultSet rs1;
+                        String sql = "SELECT TENMH, TIETDAU, TIETCUOI FROM TKB WHERE MAND = ? AND NGHOC = ?";
+                        PreparedStatement ps1 = conn.prepareStatement(sql);
+                        ps1.setString(1, User);
+                        ps1.setString(2, NgayHoc);
+                        TDau = rs.getInt("TIETDAU");
+                        TCuoi = rs.getInt("TIETCUOI");
+                        for(int i = TDau - 1; i < TCuoi; i++)
+                        {
+                            ListSat.get(i).setText(rs.getString("TENMH"));
+                        }
+                        break;
+                    }
+                }   
             }
         }catch (Exception e){
-            System.out.print("Lỗi thêm thời khóa biểu" + e); 
+            System.out.print(e);
         }
         
     }

@@ -102,7 +102,7 @@ public class ThemTKB extends javax.swing.JFrame {
         btnHuy.setBackground(new java.awt.Color(255, 255, 255));
         btnHuy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnHuy.setForeground(new java.awt.Color(58, 81, 153));
-        btnHuy.setText("Hủy");
+        btnHuy.setText("Quay lại");
         btnHuy.setBorder(null);
         btnHuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,7 +149,7 @@ public class ThemTKB extends javax.swing.JFrame {
             String SQL = "INSERT INTO TKB(MAND, TENMH, NGHOC, TIETDAU, TIETCUOI) VALUES (?,?,?,?,?) ";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, User);
-            ps.setString(2,inputMonHoc.getText());
+            ps.setString(2, inputMonHoc.getText());
             ps.setString(3, cbNgay.getSelectedItem().toString());
             ps.setInt(4, Integer.parseInt(cbTDau.getSelectedItem().toString()));
             ps.setInt(5, Integer.parseInt(cbTCuoi.getSelectedItem().toString()));
