@@ -21,7 +21,7 @@ public class TrangChuJPanel extends javax.swing.JPanel {
      * Creates new form TrangChuJPanel
      */
     private String User;
-    public TrangChuJPanel(String user) throws IOException {
+    public TrangChuJPanel(String user){
         initComponents();
         this.User = user;
     }

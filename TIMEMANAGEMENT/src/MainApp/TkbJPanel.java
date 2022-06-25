@@ -10,6 +10,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import static javax.swing.UIManager.getString;
 
 /**
@@ -25,7 +26,132 @@ public class TkbJPanel extends javax.swing.JPanel {
     public TkbJPanel(String user) {
         initComponents();
         this.User = user;
+        setList();
         LayTKB();
+        setEvent();
+    }
+    
+    ArrayList <JLabel> ListMon = new ArrayList <JLabel>();
+    ArrayList <JLabel> ListTue = new ArrayList <JLabel>();
+    ArrayList <JLabel> ListWed = new ArrayList <JLabel>();
+    ArrayList <JLabel> ListThu = new ArrayList <JLabel>();
+    ArrayList <JLabel> ListFri = new ArrayList <JLabel>();
+    ArrayList <JLabel> ListSat = new ArrayList <JLabel>();
+
+    private void setList(){
+        
+        ListMon.add(Mon1);
+        ListMon.add(Mon2);
+        ListMon.add(Mon3);
+        ListMon.add(Mon4);
+        ListMon.add(Mon5);
+        ListMon.add(Mon6);
+        ListMon.add(Mon7);
+        ListMon.add(Mon8);
+        ListMon.add(Mon9);
+        ListMon.add(Mon10);
+        
+        ListTue.add(Tue1);
+        ListTue.add(Tue2);
+        ListTue.add(Tue3);
+        ListTue.add(Tue4);
+        ListTue.add(Tue5);
+        ListTue.add(Tue6);
+        ListTue.add(Tue7);
+        ListTue.add(Tue8);
+        ListTue.add(Tue9);
+        ListTue.add(Tue10);
+        
+        
+        ListWed.add(Wed1);
+        ListWed.add(Wed2);
+        ListWed.add(Wed3);
+        ListWed.add(Wed4);
+        ListWed.add(Wed5);
+        ListWed.add(Wed6);
+        ListWed.add(Wed7);
+        ListWed.add(Wed8);
+        ListWed.add(Wed9);
+        ListWed.add(Wed10);
+        
+        
+        ListThu.add(Thu1);
+        ListThu.add(Thu2);
+        ListThu.add(Thu3);
+        ListThu.add(Thu4);
+        ListThu.add(Thu5);
+        ListThu.add(Thu6);
+        ListThu.add(Thu7);
+        ListThu.add(Thu8);
+        ListThu.add(Thu9);
+        ListThu.add(Thu10);
+        
+        ListFri.add(Fri1);
+        ListFri.add(Fri2);
+        ListFri.add(Fri3);
+        ListFri.add(Fri4);
+        ListFri.add(Fri5);
+        ListFri.add(Fri6);
+        ListFri.add(Fri7);
+        ListFri.add(Fri8);
+        ListFri.add(Fri9);
+        ListFri.add(Fri10);
+        
+        ListSat.add(Sat1);
+        ListSat.add(Sat2);
+        ListSat.add(Sat3);
+        ListSat.add(Sat4);
+        ListSat.add(Sat5);
+        ListSat.add(Sat6);
+        ListSat.add(Sat7);
+        ListSat.add(Sat8);
+        ListSat.add(Sat9);
+        ListSat.add(Sat10);
+    }
+    
+    private void setEvent(){
+        Event(ListMon, "Thứ hai");
+        Event(ListTue, "Thứ ba");
+        Event(ListWed, "Thứ tư");
+        Event(ListThu, "Thứ năm");
+        Event(ListFri, "Thứ sáu");
+        Event(ListSat, "Thứ bảy");
+
+    } 
+    
+    private void Event(ArrayList <JLabel> List, String Thu){
+        for(int i = 0;i<10;i++){
+            JLabel jlb = List.get(i);
+            List.get(i).addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    HienThiMonHoc(jlb, Thu);
+                };
+            private void HienThiMonHoc(JLabel jlb,String Thu) {
+                if (!"".equals(jlb.getText())){
+                    jLabel3.setText(jlb.getText());
+                    jLabel4.setText(Thu);
+                    try{
+                        Connection con = SQLConnection.getSQLConnection();
+                        ResultSet rs;
+                        String SQL = "SELECT TIETDAU, TIETCUOI FROM TKB WHERE MAND = ? AND TENMH = ? AND NGHOC = ?";
+                        PreparedStatement ps = con.prepareStatement(SQL);
+                        ps.setString(1,User);
+                        ps.setString(2,jlb.getText());
+                        ps.setString(3,Thu);
+                        System.out.print(User + jlb.getText() + Thu);
+                        rs = ps.executeQuery();
+                        while(rs.next()){
+                            jLabel7.setText(rs.getString(1));
+                            jLabel8.setText(rs.getString(2));
+                        }
+                    }
+                    catch (Exception e) {
+                        
+                    }
+                }
+            }
+            });
+        }
     }
 
     /**
@@ -627,7 +753,7 @@ public class TkbJPanel extends javax.swing.JPanel {
         Fri10.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(Fri10);
 
-        Sat10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Sat10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Sat10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Sat10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         Sat10.setPreferredSize(new java.awt.Dimension(35, 15));
@@ -706,89 +832,104 @@ public class TkbJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        LayTKB();
+        try{
+            Connection conn = SQLConnection.getSQLConnection();
+            String Sql = "delete from TKB\n" +
+                         "where MAND = ? AND TENMH = ? AND NGHOC = ?";
+            PreparedStatement ps = conn.prepareStatement(Sql);
+                ps.setString(1, User);
+                ps.setString(2, jLabel3.getText());
+                ps.setString(3, jLabel4.getText());
+                if(ps.executeUpdate()!=0)
+                {
+                    JOptionPane.showMessageDialog(this,"Xóa thời khóa biểu thành công");
+                }
+            }
+            catch(Exception e){
+                System.out.print(e);
+            }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReloadActionPerformed
-        // TODO add your handling code here:
+        setList();
+        LayTKB();
     }//GEN-LAST:event_btnReloadActionPerformed
 
     private void LayTKB()
     {
         String NgayHoc;
         int TDau, TCuoi;
-        
-        ArrayList <JLabel> ListMon = new ArrayList <JLabel>();
-        ListMon.add(Mon1);
-        ListMon.add(Mon2);
-        ListMon.add(Mon3);
-        ListMon.add(Mon4);
-        ListMon.add(Mon5);
-        ListMon.add(Mon6);
-        ListMon.add(Mon7);
-        ListMon.add(Mon8);
-        ListMon.add(Mon9);
-        ListMon.add(Mon10);
-        
-        ArrayList <JLabel> ListTue = new ArrayList <JLabel>();
-        ListTue.add(Tue1);
-        ListTue.add(Tue2);
-        ListTue.add(Tue3);
-        ListTue.add(Tue4);
-        ListTue.add(Tue5);
-        ListTue.add(Tue6);
-        ListTue.add(Tue7);
-        ListTue.add(Tue8);
-        ListTue.add(Tue9);
-        ListTue.add(Tue10);
-        
-        ArrayList <JLabel> ListWed = new ArrayList <JLabel>();
-        ListWed.add(Wed1);
-        ListWed.add(Wed2);
-        ListWed.add(Wed3);
-        ListWed.add(Wed4);
-        ListWed.add(Wed5);
-        ListWed.add(Wed6);
-        ListWed.add(Wed7);
-        ListWed.add(Wed8);
-        ListWed.add(Wed9);
-        ListWed.add(Wed10);
-        
-        ArrayList <JLabel> ListThu = new ArrayList <JLabel>();
-        ListThu.add(Thu1);
-        ListThu.add(Thu2);
-        ListThu.add(Thu3);
-        ListThu.add(Thu4);
-        ListThu.add(Thu5);
-        ListThu.add(Thu6);
-        ListThu.add(Thu7);
-        ListThu.add(Thu8);
-        ListThu.add(Thu9);
-        ListThu.add(Thu10);
-        
-        ArrayList <JLabel> ListFri = new ArrayList <JLabel>();
-        ListFri.add(Fri1);
-        ListFri.add(Fri2);
-        ListFri.add(Fri3);
-        ListFri.add(Fri4);
-        ListFri.add(Fri5);
-        ListFri.add(Fri6);
-        ListFri.add(Fri7);
-        ListFri.add(Fri8);
-        ListFri.add(Fri9);
-        ListFri.add(Fri10);
-        
-        ArrayList <JLabel> ListSat = new ArrayList <JLabel>();
-        ListSat.add(Sat1);
-        ListSat.add(Sat2);
-        ListSat.add(Sat3);
-        ListSat.add(Sat4);
-        ListSat.add(Sat5);
-        ListSat.add(Sat6);
-        ListSat.add(Sat7);
-        ListSat.add(Sat8);
-        ListSat.add(Sat9);
-        ListSat.add(Sat10);
+//        ArrayList <JLabel> ListMon = new ArrayList <JLabel>();
+//        ListMon.add(Mon1);
+//        ListMon.add(Mon2);
+//        ListMon.add(Mon3);
+//        ListMon.add(Mon4);
+//        ListMon.add(Mon5);
+//        ListMon.add(Mon6);
+//        ListMon.add(Mon7);
+//        ListMon.add(Mon8);
+//        ListMon.add(Mon9);
+//        ListMon.add(Mon10);
+//        
+//        ArrayList <JLabel> ListTue = new ArrayList <JLabel>();
+//        ListTue.add(Tue1);
+//        ListTue.add(Tue2);
+//        ListTue.add(Tue3);
+//        ListTue.add(Tue4);
+//        ListTue.add(Tue5);
+//        ListTue.add(Tue6);
+//        ListTue.add(Tue7);
+//        ListTue.add(Tue8);
+//        ListTue.add(Tue9);
+//        ListTue.add(Tue10);
+//        
+//        ArrayList <JLabel> ListWed = new ArrayList <JLabel>();
+//        ListWed.add(Wed1);
+//        ListWed.add(Wed2);
+//        ListWed.add(Wed3);
+//        ListWed.add(Wed4);
+//        ListWed.add(Wed5);
+//        ListWed.add(Wed6);
+//        ListWed.add(Wed7);
+//        ListWed.add(Wed8);
+//        ListWed.add(Wed9);
+//        ListWed.add(Wed10);
+//        
+//        ArrayList <JLabel> ListThu = new ArrayList <JLabel>();
+//        ListThu.add(Thu1);
+//        ListThu.add(Thu2);
+//        ListThu.add(Thu3);
+//        ListThu.add(Thu4);
+//        ListThu.add(Thu5);
+//        ListThu.add(Thu6);
+//        ListThu.add(Thu7);
+//        ListThu.add(Thu8);
+//        ListThu.add(Thu9);
+//        ListThu.add(Thu10);
+//        
+//        ArrayList <JLabel> ListFri = new ArrayList <JLabel>();
+//        ListFri.add(Fri1);
+//        ListFri.add(Fri2);
+//        ListFri.add(Fri3);
+//        ListFri.add(Fri4);
+//        ListFri.add(Fri5);
+//        ListFri.add(Fri6);
+//        ListFri.add(Fri7);
+//        ListFri.add(Fri8);
+//        ListFri.add(Fri9);
+//        ListFri.add(Fri10);
+//        
+//        ArrayList <JLabel> ListSat = new ArrayList <JLabel>();
+//        ListSat.add(Sat1);
+//        ListSat.add(Sat2);
+//        ListSat.add(Sat3);
+//        ListSat.add(Sat4);
+//        ListSat.add(Sat5);
+//        ListSat.add(Sat6);
+//        ListSat.add(Sat7);
+//        ListSat.add(Sat8);
+//        ListSat.add(Sat9);
+//        ListSat.add(Sat10);
         
         try{
             Connection con = SQLConnection.getSQLConnection();

@@ -112,7 +112,7 @@ public class DeadlineJPanel extends javax.swing.JPanel {
                 txtSearchKeyPressed(evt);
             }
         });
-        panelDL.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 15, 325, 25));
+        panelDL.add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 15, 425, 25));
 
         btnSearch.setBackground(new java.awt.Color(58, 81, 153));
         btnSearch.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -124,7 +124,7 @@ public class DeadlineJPanel extends javax.swing.JPanel {
                 btnSearchActionPerformed(evt);
             }
         });
-        panelDL.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 15, 100, 25));
+        panelDL.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 15, 100, 25));
 
         jLabel1.setBackground(new java.awt.Color(58, 81, 153));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
