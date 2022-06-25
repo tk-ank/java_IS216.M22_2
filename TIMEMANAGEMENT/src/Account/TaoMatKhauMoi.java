@@ -34,12 +34,11 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         lbTiitle = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lbRePass = new javax.swing.JLabel();
-        inputRePass = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         btnConfirm = new javax.swing.JButton();
         lbPass = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        inputPass = new javax.swing.JTextPane();
+        inputRePass = new javax.swing.JPasswordField();
+        inputPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,10 +60,6 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         lbRePass.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lbRePass.setText("Nhập lại mật khẩu");
         jPanel3.add(lbRePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 75, 175, 25));
-
-        inputRePass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        inputRePass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel3.add(inputRePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 75, 275, 25));
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -96,10 +91,11 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         lbPass.setText("Mật khẩu");
         jPanel3.add(lbPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 25, 175, 25));
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane1.setViewportView(inputPass);
+        inputRePass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel3.add(inputRePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 75, 275, 30));
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 25, 275, 25));
+        inputPass.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel3.add(inputPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 25, 275, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 75, 500, 175));
 
@@ -119,13 +115,6 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
-    private String user;
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-        new DangNhap().setVisible(true);
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         if (inputPass.getText().isEmpty() || inputRePass.getText().isEmpty())
@@ -138,17 +127,17 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu không trùng khớp", "Lỗi", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         String Pass = inputPass.getText();
         String encryptedPass = new SHA256().encryptThisString(Pass);
-        
-        try{ 
+
+        try{
             Connection con = SQLConnection.getSQLConnection();
             String SQL = "UPDATE NGUOIDUNG SET MATKHAU = ? WHERE MAND =?";
-            PreparedStatement ps = con.prepareStatement(SQL); 
-            ps.setString(1, encryptedPass); 
-            ps.setString(2, user); 
-            int kq = ps.executeUpdate(); 
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, encryptedPass);
+            ps.setString(2, user);
+            int kq = ps.executeUpdate();
             if (kq==1)
             {
                 JOptionPane.showMessageDialog(this, "Cập nhật mật khẩu thành công!");
@@ -162,12 +151,18 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
                 new XacThucTaiKhoan();
             }
         }catch (Exception e){
-            JOptionPane.showMessageDialog(this, "Lỗi không xác định "+e, "Lỗi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Cập nhật mật khẩu không thành công \n"+e, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        new DangNhap().setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+    
+    private String user;
     /**
      * @param args the command line arguments
      */
@@ -176,11 +171,10 @@ public class TaoMatKhauMoi extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnConfirm;
-    private javax.swing.JTextPane inputPass;
-    private javax.swing.JTextField inputRePass;
+    private javax.swing.JPasswordField inputPass;
+    private javax.swing.JPasswordField inputRePass;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbPass;
     private javax.swing.JLabel lbRePass;
     private javax.swing.JLabel lbTiitle;

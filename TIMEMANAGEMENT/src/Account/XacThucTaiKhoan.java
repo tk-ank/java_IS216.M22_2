@@ -119,7 +119,7 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
                 ten = rs.getString(1);
             return ten;
         }catch (Exception e){
-            JOptionPane.showMessageDialog(this,"lấy mã người dùng ko thành " + e);
+            JOptionPane.showMessageDialog(this, "Lấy mã người dùng không thành công \n"+e, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
             return null;
         }
     }
@@ -144,12 +144,13 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
                     ps1.setString(2, encryptedCode); 
                     ps1.executeUpdate(); 
                 }catch (Exception ex){
-                    JOptionPane.showMessageDialog(this, "Không thể thêm mã vào cơ sở dữ liệu "+ex, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Không thể thêm mã xác nhận vào cơ sở dữ liệu "+ex, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
+                    return false;
                 }
             }
             return true;
         }catch (Exception ex){
-            JOptionPane.showMessageDialog(this, "Không thể cập nhật mã mới "+ex, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Không thể cập nhật mã xác nhận mới vào cơ sở dữ liệu "+ex, "Lỗi không xác định", JOptionPane.ERROR_MESSAGE);
             return false;
         }
         
@@ -158,7 +159,7 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         if (inputEmail.getText().isEmpty())
         {
-            JOptionPane.showMessageDialog(this,"chưa nhập gmail"); 
+            JOptionPane.showMessageDialog(this, "Chưa nhập email", "Lỗi", JOptionPane.ERROR_MESSAGE);
         }
         else
         {
@@ -169,17 +170,19 @@ public class XacThucTaiKhoan extends javax.swing.JFrame {
                 try{
                     new Mail().SendMailto(inputEmail.getText(), code);
                 }catch(Exception ex){
-                    System.out.print("Lỗi gửi mail" + ex);
+                    JOptionPane.showMessageDialog(this, ex, "Lỗi gửi email", JOptionPane.ERROR_MESSAGE);
                 }
                 
-                System.out.print("thêm code vô csdl "+setCodetoSQL(user,code));
-                this.setVisible(false);
-                new XacNhan(user).setVisible(true);
-                //JOptionPane.showMessageDialog(this,"gửi mail và nhập mã vào csdl thành công"); 
+                //System.out.print("thêm code vô csdl ");
+                if (setCodetoSQL(user,code) == true){
+                    JOptionPane.showMessageDialog(this, "Gửi email xác nhận thành công!");
+                    this.dispose();
+                    new XacNhan(user).setVisible(true);
+                }
             }
             else
             {
-                JOptionPane.showMessageDialog(this,"nhập gmail không có trong csdl");
+                JOptionPane.showMessageDialog(this, "Email không tồn tại trong cơ sở dữ liệu!", "Lỗi", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnNextActionPerformed
