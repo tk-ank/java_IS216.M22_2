@@ -78,6 +78,7 @@ public class ChuyenManHinh {
                     break;
                 case "Deadline":
                     node = new DeadlineJPanel(this.User);
+                    System.out.print("deadline có user:"+this.User);
                     break;
                 case "Todolist":
                     node = new TodolistJPanel();

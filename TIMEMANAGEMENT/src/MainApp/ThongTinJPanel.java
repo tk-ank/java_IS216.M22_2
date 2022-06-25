@@ -7,6 +7,7 @@ package MainApp;
 import java.sql.*;
 import Account.SQLConnection;
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -18,6 +19,8 @@ public class ThongTinJPanel extends javax.swing.JPanel {
      * Creates new form ThongTinJPanel
      */
     private String User;
+    SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
+    SimpleDateFormat sdf_MMddyyyy = new SimpleDateFormat("MM/dd/yyyy");  
     public ThongTinJPanel(String user) {
         initComponents();
         this.User = user;
@@ -32,14 +35,14 @@ public class ThongTinJPanel extends javax.swing.JPanel {
             while(rs.next()){
                 tenUser.setText(rs.getString(1));                
                 Truong.setText(rs.getString(2));
-                jlbNSinh.setText(rs.getString(3));
+                jlbNSinh.setText(sdf_ddMMyyyy.format(rs.getDate(3)));
                 if (rs.getInt(4)==1)
                     jlbGTinh.setText("Nam");
                 else
                     jlbGTinh.setText("Nữ");
                 jlbSdt.setText(rs.getString(5));
                 jlbEmail.setText(rs.getString(6));
-                jlbNDangKy.setText(rs.getString(7));
+                jlbNDangKy.setText(sdf_ddMMyyyy.format(rs.getDate(7)));
             }
         }
         catch (Exception e){

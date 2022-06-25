@@ -27,6 +27,7 @@ public class DeadlineJPanel extends javax.swing.JPanel {
     public DeadlineJPanel(String user) {
         initComponents();
         this.User = user;
+        this.TaoBangDL();
     }
 
     /**
@@ -318,7 +319,8 @@ public class DeadlineJPanel extends javax.swing.JPanel {
 
     }
     
-SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
+
+    SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
 SimpleDateFormat sdf_MMddyyyy = new SimpleDateFormat("MM/dd/yyyy");  
    LocalDate today = LocalDate.now();  
 //    String today = sdf.format(now);  

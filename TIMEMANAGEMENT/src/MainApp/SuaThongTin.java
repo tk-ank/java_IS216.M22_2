@@ -51,8 +51,8 @@ public class SuaThongTin extends javax.swing.JFrame {
         jtfEmail = new javax.swing.JTextField();
         btnSuaTT = new javax.swing.JButton();
         jlbLoi = new javax.swing.JLabel();
-        dcNgSinh = new datechooser.beans.DateChooserCombo();
         btnHuy = new javax.swing.JButton();
+        dcNgSinh = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,9 +132,6 @@ public class SuaThongTin extends javax.swing.JFrame {
         jlbLoi.setForeground(new java.awt.Color(255, 51, 51));
         jPanel2.add(jlbLoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 260, 30));
 
-        dcNgSinh.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 14));
-        jPanel2.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 75, 275, 25));
-
         btnHuy.setBackground(new java.awt.Color(255, 255, 255));
         btnHuy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnHuy.setForeground(new java.awt.Color(58, 81, 153));
@@ -147,6 +144,7 @@ public class SuaThongTin extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnHuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 320, 150, 35));
+        jPanel2.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 75, 275, 25));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 76, 475, 375));
 
@@ -172,9 +170,18 @@ public class SuaThongTin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
+    SimpleDateFormat sdf_MMddyyyy = new SimpleDateFormat("MM/dd/yyyy");  
+    
     private void btnSuaTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaTTActionPerformed
         String HoTen = jtfHoTen.getText();
-        String NgSinh = dcNgSinh.getText();
+        String NgSinh;
+        try{
+            NgSinh= sdf_MMddyyyy.format(dcNgSinh.getDate());
+        }catch(Exception ex){
+            jlbLoi.setText("Vui lòng nhập thông tin đầy đủ và chính xác");
+            return;
+        }
 //        SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
 //        String NgSinh = sdf.format(jDateChooser.getDate());
         String Sdt = jtfSdt.getText();
@@ -223,7 +230,7 @@ public class SuaThongTin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnHuy;
     private javax.swing.JButton btnSuaTT;
-    private datechooser.beans.DateChooserCombo dcNgSinh;
+    private com.toedter.calendar.JDateChooser dcNgSinh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

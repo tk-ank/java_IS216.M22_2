@@ -85,7 +85,7 @@ public class DangKy extends javax.swing.JFrame {
         inputRePass = new javax.swing.JPasswordField();
         inputPass = new javax.swing.JPasswordField();
         lbPhone1 = new javax.swing.JLabel();
-        dcNgSinh = new datechooser.beans.DateChooserCombo();
+        dcNgSinh = new com.toedter.calendar.JDateChooser();
         lbTitle = new javax.swing.JLabel();
 
         jPanel4.setBackground(new java.awt.Color(254, 244, 230));
@@ -323,8 +323,7 @@ public class DangKy extends javax.swing.JFrame {
         lbPhone1.setText("Số điện thoại: ");
         pnInfor.add(lbPhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 325, 200, 25));
 
-        dcNgSinh.setCalendarBackground(new java.awt.Color(255, 255, 255));
-        dcNgSinh.setFieldFont(new java.awt.Font("Tahoma", java.awt.Font.PLAIN, 14));
+        dcNgSinh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnInfor.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 275, 300, 25));
 
         jPanel1.add(pnInfor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 561, 580));
@@ -374,6 +373,9 @@ public class DangKy extends javax.swing.JFrame {
          return true;
     }
     
+    SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
+    SimpleDateFormat sdf_MMddyyyy = new SimpleDateFormat("MM/dd/yyyy");  
+
     public boolean CheckPass (String Pass, String RePass)
     {
         if (Pass.equals(RePass))
@@ -458,7 +460,14 @@ public class DangKy extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui lòng chọn giới tính của bạn", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-        String NgSinh = dcNgSinh.getText();
+        String NgSinh;
+        try{
+            NgSinh = sdf_MMddyyyy.format(dcNgSinh.getDate());
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày sinh", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+            return;
+        };
+        
         String SDT = inputPhone.getText();
         String Email = inputEmail.getText();
         String TenTruong = inputUni.getText();
@@ -562,7 +571,7 @@ public class DangKy extends javax.swing.JFrame {
     private javax.swing.JButton btnSignUp;
     private javax.swing.JButton btnSignUp1;
     private javax.swing.ButtonGroup buttonGroup1;
-    private datechooser.beans.DateChooserCombo dcNgSinh;
+    private com.toedter.calendar.JDateChooser dcNgSinh;
     private javax.swing.JTextField inputEmail;
     private javax.swing.JTextField inputName;
     private javax.swing.JPasswordField inputPass;
