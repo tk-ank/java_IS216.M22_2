@@ -5,9 +5,12 @@
 package MainApp;
 
 import Account.SQLConnection;
+import Check.EmailValidator;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import java.sql.*;
+import Check.PhoneCheck;
+import Check.PhoneException;
 
 /**
  *
@@ -24,6 +27,7 @@ public class SuaThongTin extends javax.swing.JFrame {
         initComponents();
         setVisible(true);
         this.User = user;
+        this.LayThongTin(this.User);
     }
 
     /**
@@ -96,12 +100,22 @@ public class SuaThongTin extends javax.swing.JFrame {
         jcbNu.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jcbNu.setText("Nữ");
         jcbNu.setIconTextGap(8);
+        jcbNu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbNuActionPerformed(evt);
+            }
+        });
         jPanel2.add(jcbNu, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 125, 125, 25));
 
         jcbNam.setBackground(new java.awt.Color(254, 244, 230));
         jcbNam.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jcbNam.setText("Nam");
         jcbNam.setIconTextGap(8);
+        jcbNam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbNamActionPerformed(evt);
+            }
+        });
         jPanel2.add(jcbNam, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 125, 125, 25));
 
         jtfHoTen.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -144,7 +158,10 @@ public class SuaThongTin extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btnHuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 320, 150, 35));
-        jPanel2.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 75, 275, 25));
+
+        dcNgSinh.setDateFormatString("dd/MM/yyyy");
+        dcNgSinh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel2.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 75, 275, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 76, 475, 375));
 
@@ -172,27 +189,69 @@ public class SuaThongTin extends javax.swing.JFrame {
 
     SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
     SimpleDateFormat sdf_MMddyyyy = new SimpleDateFormat("MM/dd/yyyy");  
-    
+    private void LayThongTin(String user)
+    {
+        try{
+                Connection conn = SQLConnection.getSQLConnection();
+                String Sql = "SELECT * FROM NGUOIDUNG WHERE MAND = ?" ;
+                PreparedStatement ps = conn.prepareStatement(Sql);
+                ps.setString(1, user);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next())
+                {
+                    jtfHoTen.setText(rs.getString("TENND"));
+                    int gt = rs.getInt("GTINH");
+                    if (gt==1)
+                        jcbNam.setSelected(true);
+                    else
+                        jcbNu.setSelected(true);
+                    dcNgSinh.setDate(rs.getDate("NGSINH"));
+                    jtfSdt.setText(rs.getString("DTHOAI"));
+                    jtfEmail.setText(rs.getString("EMAIL"));
+                    jtfTruong.setText(rs.getString("TRUONG"));
+                }
+            }
+            catch (Exception ex){
+                JOptionPane.showMessageDialog(this, "Không lấy được thông tin\n"+ex, "Lỗi định dạng", JOptionPane.ERROR_MESSAGE);
+                //jlbLoi.setText("Vui lÃ²ng nháº­p thÃ´ng tin Ä‘Ãºng!");
+            }
+    }
     private void btnSuaTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaTTActionPerformed
         String HoTen = jtfHoTen.getText();
         String NgSinh;
-        try{
-            NgSinh= sdf_MMddyyyy.format(dcNgSinh.getDate());
-        }catch(Exception ex){
-            jlbLoi.setText("Vui lòng nhập thông tin đầy đủ và chính xác");
-            return;
-        }
 //        SimpleDateFormat sdf = new SimpleDateFormat("dd-mm-yyyy");
 //        String NgSinh = sdf.format(jDateChooser.getDate());
         String Sdt = jtfSdt.getText();
         String Email = jtfEmail.getText();
         String Truong = jtfTruong.getText();
         int GTinh;
-        if (HoTen.isEmpty() || Sdt.isEmpty() ||Email.isEmpty() || Truong.isEmpty()||
+        if (HoTen.isEmpty() || Sdt.isEmpty() || Email.isEmpty() || Truong.isEmpty()||
             (jcbNam.isSelected() && jcbNu.isSelected()) || (!jcbNam.isSelected() && !jcbNu.isSelected())) {
-            jlbLoi.setText("Vui lòng nhập thông tin đầy đủ và chính xác");
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin", "Lỗi định dạng", JOptionPane.ERROR_MESSAGE);
         }
         else {
+            try{
+                NgSinh= sdf_MMddyyyy.format(dcNgSinh.getDate());
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập ngày hợp lệ \n"+ex, "Lỗi định dạng", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            PhoneCheck phoneCheck = new PhoneCheck();
+            try {
+                phoneCheck.checkPhone(Sdt);
+            } catch (PhoneException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Lỗi định dạng", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            EmailValidator validator = new EmailValidator();
+            if (validator.validate(Email)) {
+            } 
+            else 
+            {
+                JOptionPane.showMessageDialog(this, "Email không hợp lệ", "Lỗi định dạng", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             try{
                 if (jcbNam.isSelected()) GTinh = 1;
                 else GTinh = 0;
@@ -223,6 +282,17 @@ public class SuaThongTin extends javax.swing.JFrame {
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnHuyActionPerformed
+
+    private void jcbNamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNamActionPerformed
+        jcbNam.setSelected(true);
+        if (jcbNu.isSelected())
+            jcbNu.setSelected(false);
+    }//GEN-LAST:event_jcbNamActionPerformed
+
+    private void jcbNuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbNuActionPerformed
+        jcbNu.setSelected(true);
+        if (jcbNam.isSelected())
+            jcbNam.setSelected(false);    }//GEN-LAST:event_jcbNuActionPerformed
 
     /**
      * @param args the command line arguments

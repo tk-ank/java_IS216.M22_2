@@ -14,13 +14,13 @@ import java.sql.SQLException;
 public class SQLConnection {
     
     public static Connection getSQLConnection() throws ClassNotFoundException,SQLException{
-       String hostName = "TRANGKYANH";
+       String hostName = "DESKTOP-8PTOJHV";
        String dataBaseName = "TIMEMANAGEMENT";
        
        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
        String connectionURL = "jdbc:sqlserver://" + hostName + ":1433;DatabaseName=" + dataBaseName + ";encrypt=true;trustServerCertificate=true;";
        
-       Connection conn = DriverManager.getConnection(connectionURL,"sa","sa");
+       Connection conn = DriverManager.getConnection(connectionURL,"sa","12345678");
        return conn;
 }
     

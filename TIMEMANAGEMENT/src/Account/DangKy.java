@@ -324,7 +324,9 @@ public class DangKy extends javax.swing.JFrame {
         pnInfor.add(lbPhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 325, 200, 25));
 
         dcNgSinh.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        pnInfor.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 275, 300, 25));
+        dcNgSinh.setDateFormatString("dd/MM/yyyy");
+        dcNgSinh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        pnInfor.add(dcNgSinh, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 275, 300, 30));
 
         jPanel1.add(pnInfor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 73, 561, 580));
 
@@ -401,7 +403,6 @@ public class DangKy extends javax.swing.JFrame {
     private boolean CheckEmail(String Email)
     {
         EmailValidator validator = new EmailValidator();
-        
         if (validator.validate(Email)) {
             return true;
         } 
@@ -463,12 +464,6 @@ public class DangKy extends javax.swing.JFrame {
         
         if (KiemTraNhapDu(TenDN, Pass, RePass, HoTen, SDT, Email, TenTruong) == true)
         {
-            try{
-                NgSinh = sdf_MMddyyyy.format(dcNgSinh.getDate());
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
             if (KiemTraChon(rMale, rFemale))
             {
                 if(rMale.isSelected())
@@ -485,8 +480,12 @@ public class DangKy extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập đầy đủ thông tin", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            
-            
+            try{
+                NgSinh = sdf_MMddyyyy.format(dcNgSinh.getDate());
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(this, "Ngày sinh chưa nhập hoặc sai định dạng", "Thiếu thông tin", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             
             PhoneCheck phoneCheck = new PhoneCheck();
             try {
