@@ -4,6 +4,11 @@
  */
 package MainApp;
 
+import Account.SQLConnection;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import static javax.swing.UIManager.getString;
+
 /**
  *
  * @author kyanh
@@ -13,8 +18,10 @@ public class TkbJPanel extends javax.swing.JPanel {
     /**
      * Creates new form TkbJPanel
      */
-    public TkbJPanel() {
+    private String User;
+    public TkbJPanel(String user) {
         initComponents();
+        this.User = user;
     }
 
     /**
@@ -133,7 +140,7 @@ public class TkbJPanel extends javax.swing.JPanel {
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Thứ 2");
+        jLabel13.setText("Thứ hai");
         jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel13.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(jLabel13);
@@ -141,7 +148,7 @@ public class TkbJPanel extends javax.swing.JPanel {
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("Thứ 3");
+        jLabel19.setText("Thứ ba");
         jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel19.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(jLabel19);
@@ -149,7 +156,7 @@ public class TkbJPanel extends javax.swing.JPanel {
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("Thứ 4");
+        jLabel14.setText("Thứ tư");
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel14.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(jLabel14);
@@ -157,7 +164,7 @@ public class TkbJPanel extends javax.swing.JPanel {
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel22.setText("Thứ 5");
+        jLabel22.setText("Thứ năm");
         jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel22.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(jLabel22);
@@ -165,7 +172,7 @@ public class TkbJPanel extends javax.swing.JPanel {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Thứ 6");
+        jLabel15.setText("Thứ sáu");
         jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel15.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(jLabel15);
@@ -174,7 +181,7 @@ public class TkbJPanel extends javax.swing.JPanel {
         jLabel17.setBackground(new java.awt.Color(58, 81, 153));
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel17.setText("Thứ 7");
+        jLabel17.setText("Thứ bảy");
         jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel17.setPreferredSize(new java.awt.Dimension(35, 15));
         jPanel1.add(jLabel17);
@@ -652,7 +659,7 @@ public class TkbJPanel extends javax.swing.JPanel {
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 75, 25, 25));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("1");
+        jLabel8.setText("3");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 75, 25, 25));
         jLabel8.getAccessibleContext().setAccessibleName("5");
 
@@ -661,6 +668,11 @@ public class TkbJPanel extends javax.swing.JPanel {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Sửa");
         jButton2.setBorder(null);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 110, 125, 25));
 
         jButton3.setBackground(new java.awt.Color(58, 81, 153));
@@ -668,9 +680,67 @@ public class TkbJPanel extends javax.swing.JPanel {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Thêm");
         jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 125, 25));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new ThemTKB(User).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new SuaTKB().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void LayTKB()
+    {
+        
+        String NgayHoc;
+        int TDau, TCuoi;
+        
+        try{
+            Connection con = SQLConnection.getSQLConnection();
+            ResultSet rs;
+            String SQL = "SELECT FORM TKB(TENMH, NGHOC, TIETDAU, TIETCUOI) WHERE MAND = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, User);
+            rs = ps.executeQuery();
+            SimpleDateFormat sdf_ddMMyyyy = new SimpleDateFormat("dd/MM/yyyy");  
+            String ngay = sdf_ddMMyyyy.format(rs.getDate("NGHOC"));
+            NgayHoc = ngay;
+//            TDau = rs.getInt("TIETDAU");
+//            TCuoi = rs.getInt("TIETCUOI");
+            
+            while(rs.next())
+            {
+                switch(NgayHoc)
+                {
+                    case "Thứ hai":
+                    {
+                        Connection conn = SQLConnection.getSQLConnection();
+                        ResultSet rs1;
+                        String sql = "SELECT FORM TKB(TENMH, TIETDAU, TIETCUOI) WHERE MAND = ? AND NGHOC = Thứ hai";
+                        PreparedStatement ps1 = conn.prepareStatement(sql);
+                        ps1.setString(1, User);
+                        TDau = rs.getInt("TIETDAU");
+                        TCuoi = rs.getInt("TIETCUOI");
+                        for(int i = TDau; i <= TCuoi; i++)
+                        {
+                            
+                        }
+                    }
+                        
+                }
+            }
+        }catch (Exception e){
+            System.out.print("Lỗi thêm thời khóa biểu" + e); 
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fri1;
