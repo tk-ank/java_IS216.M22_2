@@ -9,10 +9,12 @@ package MainApp;
  * @author kyanh
  */
 
+import Account.DangNhap;
 import Controller.ChuyenManHinh;
 import DanhMuc.DanhMuc;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 public class QuanLyThoiGian extends javax.swing.JFrame {
 
     /*
@@ -66,7 +68,7 @@ public class QuanLyThoiGian extends javax.swing.JFrame {
         jpnTodolist = new javax.swing.JPanel();
         jlbTodolist = new javax.swing.JLabel();
         btnDangXuat = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        lbDangXuat = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -145,12 +147,17 @@ public class QuanLyThoiGian extends javax.swing.JFrame {
         btnDangXuat.setBackground(new java.awt.Color(46, 51, 46));
         btnDangXuat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel7.setText("Đăng xuất");
-        jLabel7.setToolTipText("");
-        btnDangXuat.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, 50));
+        lbDangXuat.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lbDangXuat.setForeground(new java.awt.Color(255, 255, 255));
+        lbDangXuat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lbDangXuat.setText("Đăng xuất");
+        lbDangXuat.setToolTipText("");
+        lbDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbDangXuatMouseClicked(evt);
+            }
+        });
+        btnDangXuat.add(lbDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 150, 50));
 
         jPanel1.add(btnDangXuat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 200, 50));
 
@@ -169,13 +176,22 @@ public class QuanLyThoiGian extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lbDangXuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDangXuatMouseClicked
+        int result = JOptionPane.showConfirmDialog(this,"Sure? Bạn có muốn đăng xuất?", "Đăng xuất",
+               JOptionPane.YES_NO_OPTION,
+               JOptionPane.QUESTION_MESSAGE);
+            if(result == JOptionPane.YES_OPTION){
+               this.dispose();
+               new DangNhap().setVisible(true);
+            }
+    }//GEN-LAST:event_lbDangXuatMouseClicked
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btnDangXuat;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbDeadline;
     private javax.swing.JLabel jlbThongTin;
@@ -189,5 +205,6 @@ public class QuanLyThoiGian extends javax.swing.JFrame {
     private javax.swing.JPanel jpnTrangChu;
     private javax.swing.JPanel jpnView;
     private javax.swing.JPanel jpnView1;
+    private javax.swing.JLabel lbDangXuat;
     // End of variables declaration//GEN-END:variables
 }

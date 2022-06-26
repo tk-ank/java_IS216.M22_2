@@ -844,12 +844,42 @@ public class TkbJPanel extends javax.swing.JPanel {
                 {
                     JOptionPane.showMessageDialog(this,"Xóa thời khóa biểu thành công");
                 }
+                
+                int tDau = Integer.parseInt(jLabel7.getText());
+            int tCuoi = Integer.parseInt(jLabel8.getText());
+
+                switch(jLabel4.getText()) {
+                case ("Thứ hai"):
+                    Xoa(tDau,tCuoi,ListMon);
+                    break;
+                case ("Thứ ba"):
+                    Xoa(tDau,tCuoi,ListTue);
+                    break;
+                case ("Thứ tư"):
+                    Xoa(tDau,tCuoi,ListWed);
+                    break;
+                case ("Thứ năm"):
+                    Xoa(tDau,tCuoi,ListThu);
+                    break;
+                case ("Thứ sáu"):
+                    Xoa(tDau,tCuoi,ListFri);
+                    break;
+                case ("Thứ bảy"):
+                    Xoa(tDau,tCuoi,ListSat);
+                    break;
+                }
             }
             catch(Exception e){
                 System.out.print(e);
             }
     }//GEN-LAST:event_btnXoaActionPerformed
 
+    private void Xoa(int TDau, int TCuoi, ArrayList <JLabel> List){
+            for(int i = TDau-1;i<TCuoi;i++)
+            {
+                List.get(i).setText("");
+            }
+    }
     private void btnReloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReloadActionPerformed
         setList();
         LayTKB();
