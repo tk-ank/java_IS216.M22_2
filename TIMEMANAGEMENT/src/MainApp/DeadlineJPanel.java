@@ -328,8 +328,6 @@ public class DeadlineJPanel extends javax.swing.JPanel {
 
     private void jTabbedPane1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane1FocusGained
         LayDL(this.User,null);
-        txtTenDL_ThemDL.setText(null);
-        dateHanDL.setDate(null);        
     }//GEN-LAST:event_jTabbedPane1FocusGained
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
